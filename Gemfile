@@ -70,4 +70,6 @@ group :development do
   # gem "spring"
 end
 
-gem "inline_svg", "~> 1.9"
+gem 'inline_svg', '~> 1.9'
+
+gem 'annotate', '~> 3.2'
