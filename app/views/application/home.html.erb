@@ -7,7 +7,7 @@
     <div class="mx-auto max-w-2xl text-center">
       <h1 class="text-2xl font-extrabold sm:text-5xl">
         Simple Data Sharing.
-        <strong class="font-extrabold text-red-700 sm:block mt-2">
+        <strong class="font-extrabold text-red-600 sm:block mt-2">
           For Humans and Machines
         </strong>
       </h1>
@@ -43,113 +43,137 @@
 </section>
 <section id="how-it-works" class="container mx-auto max-w-screen-xl">
 
-  <h2 class="text-3xl font-extrabold text-center text-red-500 sm:text-5xl mb-8">How It Works</h2>
+  <p class="text-lg font-extrabold text-gray-300 sm:text-2xl mb-2 upcase">How It Works</p>
+  <h2 class="text-3xl font-extrabold text-red-600 sm:text-5xl mb-8">Drop data and grab data</h2>
 
-  <div class="flex flex-col gap-8 lg:flex-row items-center justify-between">
-    <div class="w-full mb-8 lg:mb-0 relative">
-      <div
+  <div class="grid grid-cols-1 gap-8 items-center justify-between md:grid-cols-2">
+    <img
+      src="https://via.placeholder.com/400"
+      alt="Upload Data"
+      class="w-full h-64 object-cover mb-4 rounded-lg"
+    >
+    <div class="bg-white p-6">
+      <p class="text-8xl font-extrabold text-gray-300 mb-4">01</p>
+      <h3 class="text-2xl font-semibold text-red-500 mb-2">Upload your data</h3>
+      <p class="text-gray-700 mb-4">Drop some data in our
+        <%= link_to(
+          "Web UI",
+          new_drop_path,
+          class:
+            " text-red-600 no-underline hover:text-red-700 hover:underline active:bg-red-500",
+        ) %>
+        or upload data with your favorite command line client. Here's how you
+        do it with Curl.</p>
+      <code
         class="
-          absolute left-0 top-0 bg-red-500 text-white rounded-full h-10 w-10 flex
-          items-center justify-center font-bold text-lg
+          text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800
+          text-white rounded-lg p-4 pl-6
         "
-      >1</div>
-      <img
-        src="https://via.placeholder.com/400"
-        alt="Upload Data"
-        class="w-full h-64 object-cover mb-4 rounded-lg"
       >
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-red-500 mb-2">Step 1: Upload Data</h3>
-        <p class="text-gray-700 mb-4">Use curl to securely upload your data.</p>
-        <code
-          class="
-            text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800
-            text-white rounded-lg p-4 pl-6
-          "
-        >
-          <span class="flex gap-4">
-            <span class="shrink-0 text-gray-500">
-              $
-            </span>
-
-            <span class="flex-1">
-              curl -X POST -F "data=@yourfile.txt"
-              https://datadeaddrop.com/upload
-            </span>
+        <span class="flex gap-4">
+          <span class="shrink-0 text-gray-500">
+            $
           </span>
 
-          <button>
-            <svg
-              class="
-                shrink-0 h-5 w-5 transition text-gray-500 group-hover:text-white
-              "
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+          <span class="flex-1">
+            curl -X POST -F "data=@yourfile.txt" https://datadeaddrop.com/drop
+          </span>
+        </span>
+
+        <button>
+          <svg
+            class="
+              shrink-0 h-5 w-5 transition text-gray-500 group-hover:text-white
+            "
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path>
+            <path
+              d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
             >
-              <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path>
-              <path
-                d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
-              >
-              </path>
-            </svg>
-          </button>
-        </code>
-      </div>
+            </path>
+          </svg>
+        </button>
+      </code>
     </div>
-    <div class="w-full relative">
-      <div
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-8xl font-extrabold text-gray-300 mb-4">02</p>
+      <h3 class="text-2xl font-semibold text-red-500 mb-2">Get a link</h3>
+      <p class="text-gray-700 mb-4">We'll hand you a secure, easy to remember link to your data. Keep that
+        link safe, because we won't show to anybody ever again - including
+        you!
+      </p>
+    </div>
+    <img
+      src="https://via.placeholder.com/400"
+      alt=""
+      class="w-full h-64 object-cover mb-4 rounded-lg"
+    >
+    <img
+      src="https://via.placeholder.com/400"
+      alt="Download your Data"
+      class="w-full h-64 object-cover mb-4 rounded-lg md:column-start-3"
+    >
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-8xl font-extrabold text-gray-300 mb-4">03</p>
+      <h3 class="text-2xl font-semibold text-red-500 mb-2">Grab your data</h3>
+      <p class="text-gray-700 mb-4">Use your link to download your data, either via your browser or your
+        favorite command line client.</p>
+
+      <code
         class="
-          absolute left-0 top-0 bg-red-500 text-white rounded-full h-10 w-10 flex
-          items-center justify-center font-bold text-lg
+          text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800
+          text-white rounded-lg p-4 pl-6
         "
-      >2</div>
-      <img
-        src="https://via.placeholder.com/400"
-        alt="Download Data"
-        class="w-full h-64 object-cover mb-4 rounded-lg"
       >
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-red-500 mb-2">Step 2: Download Data</h3>
-        <p class="text-gray-700 mb-4">Download your data securely.</p>
-
-        <code
-          class="
-            text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800
-            text-white rounded-lg p-4 pl-6
-          "
-        >
-          <span class="flex gap-4">
-            <span class="shrink-0 text-gray-500">
-              $
-            </span>
-
-            <span class="flex-1">
-              curl -O https://datadeaddrop.com/your-secure-url
-            </span>
+        <span class="flex gap-4">
+          <span class="shrink-0 text-gray-500">
+            $
           </span>
 
-          <button>
-            <svg
-              class="
-                shrink-0 h-5 w-5 transition text-gray-500 group-hover:text-white
-              "
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+          <span class="flex-1">
+            curl -O https://datadeaddrop.com/grab/your-easy-to-remember-url
+          </span>
+        </span>
+
+        <button>
+          <svg
+            class="
+              shrink-0 h-5 w-5 transition text-gray-500 group-hover:text-white
+            "
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path>
+            <path
+              d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
             >
-              <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path>
-              <path
-                d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
-              >
-              </path>
-            </svg>
-          </button>
-        </code>
-      </div>
+            </path>
+          </svg>
+        </button>
+      </code>
     </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-8xl font-extrabold text-gray-300 mb-4">04</p>
+      <h3 class="text-2xl font-semibold text-red-500 mb-2">Incinerate!</h3>
+      <p class="text-gray-700 mb-4">After access, we destroy your data and keep no trace of it. If you
+        don't grab your data after a set amount of time it will also be
+        destroyed 🔥</p>
+
+    </div>
+    <img
+      src="https://via.placeholder.com/400"
+      alt="Download your Data"
+      class="w-full h-64 object-cover mb-4 rounded-lg"
+    >
   </div>
 </section>
 
