@@ -73,3 +73,5 @@ end
 gem 'inline_svg', '~> 1.9'
 
 gem 'annotate', '~> 3.2'
+
+gem "erb-formatter", "~> 0.6.0"

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class DropsController < ApplicationController
-  before_action :set_drop, only: %i[show edit update destroy]
+  layout 'drops'
+  before_action :set_drop, only: %i[show preview]
 
   def show; end
 
