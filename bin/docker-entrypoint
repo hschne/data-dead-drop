@@ -1,4 +1,6 @@
 #!/bin/bash -e
+#
+rm -f /rails/tmp/pids/server.pid
 
 # If running the rails server then create or migrate existing database
 if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
