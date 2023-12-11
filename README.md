@@ -1,24 +1,11 @@
-# README
+# Data Dead Drop
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODOs: 
 
-Things you may want to cover:
+- [ ] Fix deploy 
+- [ ] Generate memorable URL
+- [ ] Upload file via UI
+- [ ] Show confirm dialog
+- [ ] Destroy data after access
+- [ ] Destroy data after expiry
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

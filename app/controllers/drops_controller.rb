@@ -35,6 +35,6 @@ class DropsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def drop_params
-    params.require(:drop).permit(:path, :data, :expiry, :remaining_uses)
+    params.require(:drop).permit(:data, :expiry, :remaining_uses)
   end
 end
