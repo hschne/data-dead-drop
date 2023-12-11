@@ -1,0 +1,12 @@
+path: "storage/queue.sqlite3"
+queues:
+  - [low, 1]
+  - [default, 5]
+  - [critical, 10, "spawn"]
+workers: 5
+retries: 3
+retry_delay: 60
+retry_delay_multiplier: 10
+dead_job_retention: 864000#
+gc_sleep_interval: 7200
+logger: STDOUT
