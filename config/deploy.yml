@@ -20,6 +20,10 @@ registry:
     - KAMAL_REGISTRY_PASSWORD
 
 env:
+  clear:
+    HOSTNAME: datadeaddrop.com
+    RAILS_SERVE_STATIC_FILES: true
+    RAILS_LOG_TO_STDOUT: true
   secret:
     - RAILS_MASTER_KEY
 

@@ -6,15 +6,15 @@
   >
     <div class="mx-auto max-w-xl text-center">
       <h1 class="text-3xl font-extrabold sm:text-5xl">
-        Understand User Flow.
-        <strong class="font-extrabold text-red-700 sm:block">
-          Increase Conversion.
+        Share Data.
+        <strong class="font-extrabold text-red-700 sm:block mt-2">
+          Simple and Secure.
         </strong>
       </h1>
 
       <p class="mt-4 sm:text-xl/relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-        tenetur fuga ducimus numquam ea!
+        Upload your data and receive a secure link. After it has been accessed,
+        your data will be destroyed. Made for humans and machines.
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-4">
@@ -33,11 +33,126 @@
             block w-full rounded px-12 py-3 text-sm font-medium text-red-600 shadow
             hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto
           "
-          href="/about"
+          href="#how-it-works"
         >
           Learn More
         </a>
       </div>
     </div>
   </div>
+</section>
+<section id="how-it-works" class="container mx-auto p-8">
+
+  <h2 class="text-3xl font-extrabold text-center text-red-500 sm:text-5xl mb-8">How It Works</h2>
+
+  <div class="flex flex-col lg:flex-row items-center justify-around">
+    <!-- Step 1: Upload Data -->
+    <div class="max-w-md mb-8 lg:mb-0 relative">
+      <div
+        class="
+          absolute left-0 top-0 bg-red-500 text-white rounded-full h-10 w-10 flex
+          items-center justify-center font-bold text-lg
+        "
+      >1</div>
+      <img
+        src="https://via.placeholder.com/400"
+        alt="Upload Data"
+        class="w-full h-64 object-cover mb-4 rounded-lg"
+      >
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-red-500 mb-2">Step 1: Upload Data</h3>
+        <p class="text-gray-700 mb-4">Use curl to securely upload your data.</p>
+        <code class="bg-gray-200 p-4 rounded break-all">curl -X POST -F "data=@yourfile.txt" https://datadeaddrop.com/upload</code>
+      </div>
+    </div>
+    <!-- Step 2: Download Data -->
+    <div class="max-w-md relative">
+      <div
+        class="
+          absolute left-0 top-0 bg-red-500 text-white rounded-full h-10 w-10 flex
+          items-center justify-center font-bold text-lg
+        "
+      >2</div>
+      <img
+        src="https://via.placeholder.com/400"
+        alt="Download Data"
+        class="w-full h-64 object-cover mb-4 rounded-lg"
+      >
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-red-500 mb-2">Step 2: Download Data</h3>
+        <p class="text-gray-700 mb-4">Download your data securely.</p>
+        <code class="bg-gray-200 p-4 rounded break-all">curl -O https://datadeaddrop.com/download/yourfile.txt</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="container mx-auto p-8">
+  <h2 class="text-3xl font-extrabold text-center text-gray-900 mb-8 sm:text-5xl">FAQ</h2>
+
+  <details class="group [&_summary::-webkit-details-marker]:hidden" open>
+    <summary
+      class="
+        flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50
+        p-4 text-gray-900
+      "
+    >
+      <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
+
+      <svg
+        class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+    </summary>
+
+    <p class="mt-4 px-4 leading-relaxed text-gray-700">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
+      veritatis molestias culpa in, recusandae laboriosam neque aliquid libero
+      nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio
+      corporis earum similique!
+    </p>
+  </details>
+
+  <details class="group [&_summary::-webkit-details-marker]:hidden">
+    <summary
+      class="
+        flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50
+        p-4 text-gray-900
+      "
+    >
+      <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
+
+      <svg
+        class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+    </summary>
+
+    <p class="mt-4 px-4 leading-relaxed text-gray-700">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
+      veritatis molestias culpa in, recusandae laboriosam neque aliquid libero
+      nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio
+      corporis earum similique!
+    </p>
+  </details>
 </section>
