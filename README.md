@@ -2,8 +2,6 @@
 
 ## TODOs: 
 
-- [ ] Fix deploy 
-- [ ] Improve how it works design
 - [ ] Generate memorable URL
 - [ ] Upload file via UI
 - [ ] Show confirm dialog

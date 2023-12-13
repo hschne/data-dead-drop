@@ -1,19 +1,19 @@
-<section class="">
-  <div class="mx-auto max-w-screen-xl py-32 lg:flex lg:h-screen lg:items-center">
-    <div class="mx-auto max-w-2xl text-center">
-      <h1 class="text-2xl font-extrabold sm:text-5xl">
-        Simple Data Sharing.
+<section class="px-4">
+  <div class="mx-auto max-w-screen-xl py-32 lg:flex lg:gap-8 lg:items-center">
+    <div class="mx-auto max-w-md">
+      <h1 class="text-2xl font-extrabold sm:text-4xl">
+        Data Sharing.
         <strong class="font-extrabold text-red-600 sm:block mt-2">
           For Humans and Machines.
         </strong>
       </h1>
 
-      <p class="mt-4 sm:text-xl/relaxed">
+      <p class="mt-8 sm:text-xl/relaxed">
         Upload data and receive a secure link. After access or a set expiry
         date your data is destroyed forever. Made for humans and machines.
       </p>
 
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <div class="mt-8 flex flex-wrap gap-4">
         <a
           class="
             block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow
@@ -36,18 +36,19 @@
         </a>
       </div>
     </div>
+
+    <%= image_tag("hero.png", class: "w-full object-cover hidden lg:block") %>
   </div>
 </section>
-<section id="how-it-works" class="container mx-auto max-w-screen-xl">
+<section id="how-it-works" class="container mx-auto max-w-screen-xl p-4">
 
-  <p class="text-lg font-extrabold text-gray-300 sm:text-2xl mb-2 upcase">How It Works</p>
+  <p class="text-lg font-extrabold sm:text-2xl mb-2 upcase">How It Works</p>
   <h2 class="text-3xl font-extrabold text-red-600 sm:text-5xl mb-8">Share data in 3 simple steps</h2>
 
-  <div class="grid grid-cols-1 gap-8 items-center justify-between md:grid-cols-2">
+  <div class="grid grid-cols-1 gap-8 items-center justify-between md:grid-cols-3">
 
-    <%= image_tag("upload.png", class: "w-full h-64 object-scale-down mb-4 rounded-lg") %>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-8xl font-extrabold text-gray-300 mb-4">01</p>
+    <p class="text-8xl font-extrabold text-red-600 mb-4 p-6">01</p>
+    <div class="bg-white col-span-2 p-6 rounded shadow">
       <h3 class="text-3xl font-semibold text-red-600 mb-2">Drop your data</h3>
       <p class="text-gray-700 mb-4">Drop some data in our
         <%= link_to(
@@ -94,12 +95,12 @@
       </code>
     </div>
 
-    <%= image_tag(
-      "download.png",
-      class: "w-full h-64 object-scale-down mb-4 rounded-lg",
-    ) %>
-    <div class="bg-white p-6 rounded-lg shadow-md md:col-start-1 md:row-start-2 ">
-      <p class="text-8xl font-extrabold text-gray-300 mb-4">02</p>
+    <p class="text-8xl font-extrabold text-red-500 p-6">02</p>
+    <div
+      class="
+        bg-white md:col-start-1 md:row-start-2 col-span-2 rounded shadow p-6
+      "
+    >
       <h3 class="text-3xl font-semibold text-red-600 mb-2">Grab your data</h3>
       <p class="text-gray-700 mb-4">Use your link to download your data, either via your browser or your
         favorite command line client.</p>
@@ -140,9 +141,8 @@
       </code>
     </div>
 
-    <%= image_tag("burn.png", class: "w-full h-64 object-scale-down mb-4 rounded-lg") %>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-8xl font-extrabold text-gray-300 mb-4">03</p>
+    <p class="text-8xl font-extrabold text-red-500 p-6">03</p>
+    <div class="bg-white col-span-2 rounded shadow p-6">
       <h3 class="text-3xl font-semibold text-red-600 mb-2">Incinerate!</h3>
       <p class="text-gray-700 mb-4">After access, we destroy your data and keep no trace of it. If you
         don't grab your data after a set amount of time it will also be
@@ -152,7 +152,7 @@
   </div>
 </section>
 
-<section id="how-it-works" class="container mx-auto max-w-screen-xl py-32">
+<section id="faq" class="container mx-auto max-w-screen-xl py-32 px-4">
   <h2 class="text-3xl font-extrabold text-red-600 mb-8 sm:text-5xl">FAQ</h2>
 
   <details class="group [&_summary::-webkit-details-marker]:hidden" open>
