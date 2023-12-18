@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :uploads, only: %i[new create show] do
-    member do
-      get 'preview'
-    end
-  end
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
   root 'application#home'
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+
+  get '/new', to: 'uploads#new', as: :new
+  post '/upload', to: 'uploads#upload', as: :upload
+  get '/download/:id/preview', to: 'uploads#preview', as: :preview
+  get '/download/:id', to: 'uploads#download', as: :download
   get 'up' => 'rails/health#show', as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Preview error pages
+  get '/errors/404', to: 'errors#not_found'
+  get '/errors/500', to: 'errors#internal_server_error'
+
+  match '/404', to: 'errors#not_found', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 end
