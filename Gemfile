@@ -50,6 +50,10 @@ gem 'kamal', '~> 1.3'
 
 gem 'litestack', '~> 0.4.2'
 
+gem 'active_storage_validations', '~> 1.1'
+gem 'aws-sdk-s3', '~> 1.141'
+gem 'inline_svg', '~> 1.9'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -60,6 +64,8 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'annotate', '~> 3.2'
+  gem 'erb-formatter', '~> 0.6.0'
   gem 'rubocop', '~> 1.59'
   gem 'web-console'
 
@@ -69,11 +75,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-gem 'inline_svg', '~> 1.9'
-
-gem 'annotate', '~> 3.2'
-
-gem 'erb-formatter', '~> 0.6.0'
-
-gem "active_storage_validations", "~> 1.1"

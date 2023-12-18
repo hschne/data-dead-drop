@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-json.extract! upload, :id, :path, :data, :expiry, :remaining_uses, :previewed, :created_at, :updated_at
-json.url upload_url(upload, format: :json)
-json.data url_for(upload.data)
+json.extract! upload, :key, :expiry, :remaining_uses, :created_at
+json.url Rails.application.routes.url_helpers.download_url(upload)
+json.name upload.data.filename.to_s

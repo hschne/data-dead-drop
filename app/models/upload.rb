@@ -21,6 +21,8 @@ class Upload < ApplicationRecord
 
   validates :data, attached: true, size: { less_than: 512.kilobytes, message: 'is must be smaller than 512 kb' }
 
+  def url; end
+
   def to_param
     key
   end

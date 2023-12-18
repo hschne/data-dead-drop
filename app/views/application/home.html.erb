@@ -71,7 +71,8 @@
           </span>
 
           <span class="flex-1">
-            curl -X POST -F "data=@yourfile.txt" https://datadeaddrop.com/drop
+            curl -X POST -F "upload[data]=@your-file.txt"
+            https://datadeaddrop.com/u.json
           </span>
         </span>
 
@@ -117,7 +118,8 @@
           </span>
 
           <span class="flex-1">
-            curl -O https://datadeaddrop.com/grab/your-easy-to-remember-url
+            curl -L http://datadeaddrop.com/d/your-secret-url.json >
+            your-file.txt
           </span>
         </span>
 
