@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :import do
   task dice_words: :environment do
     words = File.readlines('lib/assets/dice_words.txt', chomp: true).map do |line|

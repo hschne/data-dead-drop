@@ -18,7 +18,7 @@ class DropsController < ApplicationController
     respond_to do |format|
       if @drop.save
         format.html { redirect_to drop_url(@drop), notice: 'Drop was successfully created.' }
-        format.json { render :show, status: :created, location: @drop }
+        format.json { render :preview, status: :created, location: @drop }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @drop.errors, status: :unprocessable_entity }
