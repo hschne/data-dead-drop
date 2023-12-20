@@ -71,6 +71,7 @@ group :development do
   gem 'annotate', '~> 3.2'
   gem 'erb-formatter', '~> 0.6.0'
   gem 'rubocop', '~> 1.59'
+  gem 'rubocop-rails', '~> 2.23'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
