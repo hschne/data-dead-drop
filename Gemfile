@@ -53,6 +53,10 @@ gem 'litestack', '~> 0.4.2'
 gem 'active_storage_validations', '~> 1.1'
 gem 'aws-sdk-s3', '~> 1.141'
 gem 'inline_svg', '~> 1.9'
+gem 'rufus-scheduler', '~> 3.9'
+
+gem 'sentry-rails', '~> 5.14'
+gem 'sentry-ruby', '~> 5.14'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
