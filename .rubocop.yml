@@ -1,0 +1,33 @@
+require:
+  - rubocop-factory_bot
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Metrics/BlockLength:
+  AllowedMethods: ["describe", "context"]
+
+RSpec/ExampleLength:
+  Exclude:
+    - spec/**/*
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/MultipleExpectations:
+  Max: 2
+
+Style/BlockDelimiters:
+  Exclude:
+    - spec/**/*
+
+Style/Documentation:
+  Enabled: false

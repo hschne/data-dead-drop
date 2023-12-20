@@ -42,3 +42,10 @@
 
 # Ignore for Build
 /vendor/bundle
+
+# Test stuff
+*.rbc
+.rspec
+/public/system
+/coverage/
+/spec/tmp

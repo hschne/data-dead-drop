@@ -50,11 +50,18 @@ gem 'kamal', '~> 1.3'
 
 gem 'litestack', '~> 0.4.2'
 
+# Files
 gem 'active_storage_validations', '~> 1.1'
 gem 'aws-sdk-s3', '~> 1.141'
-gem 'inline_svg', '~> 1.9'
+
+# Scheduler
 gem 'rufus-scheduler', '~> 3.9'
 
+# Utilities
+gem 'inline_svg', '~> 1.9'
+gem 'lograge', '~> 0.14.0'
+
+# Errors
 gem 'sentry-rails', '~> 5.14'
 gem 'sentry-ruby', '~> 5.14'
 
@@ -64,16 +71,21 @@ gem 'sentry-ruby', '~> 5.14'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails', '~> 6.4'
+  gem 'rspec-rails', '~> 6.1'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'annotate', '~> 3.2'
+
   gem 'erb-formatter', '~> 0.6.0'
   gem 'rubocop', '~> 1.59'
+  gem 'rubocop-factory_bot', '~> 2.24'
   gem 'rubocop-rails', '~> 2.23'
-  gem 'web-console'
+  gem 'rubocop-rspec', '~> 2.25'
 
+  gem 'web-console'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
