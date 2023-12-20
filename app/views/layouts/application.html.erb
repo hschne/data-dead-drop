@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-screen flex flex-col">
+  <body class="h-screen flex flex-col text-gray-800">
 
     <header class="bg-white">
       <div
@@ -19,10 +19,8 @@
           mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4
         "
       >
-        <a class=" flex flex-row gap-1 items-center text-red-600 " href="/">
-          <%= inline_svg_tag "logo.svg", class: "h-12 w-12 p-2" %>
+        <a class=" flex flex-row gap-1 items-center" href="/">
           <span class="text-xl text-bold font-extrabold">Data Dead Drop</span>
-
         </a>
 
         <a
@@ -50,8 +48,7 @@
     <footer class="bg-gray-50">
       <div class="mx-auto max-w-screen-xl py-8 sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-          <div class="flex justify-center text-red-600 sm:justify-start">
-            <%= inline_svg_tag "logo.svg", class: "h-12 w-12 p-2" %>
+          <div class="flex justify-center sm:justify-start">
           </div>
 
           <p class="mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right">

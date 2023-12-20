@@ -1,73 +1,55 @@
-<section class="px-4">
-  <div class="mx-auto max-w-screen-xl py-32 lg:flex lg:gap-8 lg:items-center">
-    <div class="mx-auto max-w-md">
-      <h1 class="text-2xl font-extrabold sm:text-4xl">
+<section class="">
+  <div
+    class="
+      mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center
+    "
+  >
+    <div class="mx-auto text-center">
+      <h1 class="font-semibold text-3xl sm:text-5xl/leading-tight">
         Data Sharing.
-        <strong class="font-extrabold text-red-600 sm:block mt-2">
-          For Humans and Machines.
-        </strong>
+        <br>
+        Secure, Simple, Self-Destructing.
       </h1>
 
-      <p class="mt-8 sm:text-xl/relaxed">
-        Upload data and receive a secure link. After access or a set expiry
-        date your data is destroyed forever. Made for humans and machines.
+      <p class="mx-auto max-w-lg mt-4 sm:text-xl/relaxed ">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
+        tenetur fuga ducimus numquam ea!
       </p>
 
-      <div class="mt-8 flex flex-wrap gap-4">
-        <a
-          class="
-            block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow
-            hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto
-          "
-          href="<%= new_path %>"
-        >
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <%= render layout: "components/button_link_inverted", locals: { path: "What" } do %>
           Get Started
-        </a>
+        <% end %>
 
-        <a
-          class="
-            block w-full rounded px-12 py-3 text-sm background-white font-medium
-            text-red-600 shadow hover:text-red-700 focus:outline-none focus:ring
-            active:text-red-500 sm:w-auto
-          "
-          href="#how-it-works"
-        >
+        <%= render layout: "components/button_link", locals: { path: '#how-it-works' } do %>
           Learn More
-        </a>
+        <% end %>
       </div>
     </div>
-
-    <%= image_tag("hero.png", class: "w-full object-cover hidden lg:block") %>
   </div>
 </section>
 <section id="how-it-works" class="container mx-auto max-w-screen-xl p-4">
 
   <p class="text-lg font-extrabold sm:text-2xl mb-2 upcase">How It Works</p>
-  <h2 class="text-3xl font-extrabold text-red-600 sm:text-5xl mb-8">Share data in 3 simple steps</h2>
+  <h2 class="text-3xl font-extrabold sm:text-5xl mb-8">Share data in 3 simple steps</h2>
 
   <div class="grid grid-cols-1 gap-8 items-center justify-between md:grid-cols-3">
 
-    <p class="text-8xl font-extrabold text-red-600 mb-4 p-6">01</p>
+    <p class="text-8xl font-extrabold mb-4 p-6">01</p>
     <div class="bg-white col-span-2 p-6 rounded shadow">
-      <h3 class="text-3xl font-semibold text-red-600 mb-2">Drop your data</h3>
-      <p class="text-gray-700 mb-4">Drop some data in our
-        <%= link_to(
-          "Web UI",
-          new_path,
-          class:
-            " text-red-600 no-underline hover:text-red-700 hover:underline active:bg-red-500",
-        ) %>
+      <h3 class="text-3xl font-semibold mb-2">Drop your data</h3>
+      <p class="mb-4">Drop some data in our
+        <%= link_to("Web UI", new_path, class: "no-underline hover:underline") %>
         or upload data with your favorite command line client. In exchange,
         you'll receive a secure link. Here's how you do it with Curl.</p>
       <code
         class="
-          text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800
-          text-white rounded-lg p-4 pl-6
+          text-sm sm:text-base inline-flex text-left items-center space-x-4 text-white
+          rounded-lg p-4 pl-6
         "
       >
         <span class="flex gap-4">
-          <span class="shrink-0 text-gray-500">
-            $
+          <span class="shrink-0">
           </span>
 
           <span class="flex-1">
@@ -78,9 +60,7 @@
 
         <button>
           <svg
-            class="
-              shrink-0 h-5 w-5 transition text-gray-500 group-hover:text-white
-            "
+            class="shrink-0 h-5 w-5 transition group-hover:text-white"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -96,24 +76,24 @@
       </code>
     </div>
 
-    <p class="text-8xl font-extrabold text-red-500 p-6">02</p>
+    <p class="text-8xl font-extrabold p-6">02</p>
     <div
       class="
         bg-white md:col-start-1 md:row-start-2 col-span-2 rounded shadow p-6
       "
     >
-      <h3 class="text-3xl font-semibold text-red-600 mb-2">Grab your data</h3>
-      <p class="text-gray-700 mb-4">Use your link to download your data, either via your browser or your
+      <h3 class="text-3xl font-semibold mb-2">Grab your data</h3>
+      <p class="mb-4">Use your link to download your data, either via your browser or your
         favorite command line client.</p>
 
       <code
         class="
-          text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800
-          text-white rounded-lg p-4 pl-6
+          text-sm sm:text-base inline-flex text-left items-center space-x-4 text-white
+          rounded-lg p-4 pl-6
         "
       >
         <span class="flex gap-4">
-          <span class="shrink-0 text-gray-500">
+          <span class="shrink-0">
             $
           </span>
 
@@ -125,9 +105,7 @@
 
         <button>
           <svg
-            class="
-              shrink-0 h-5 w-5 transition text-gray-500 group-hover:text-white
-            "
+            class="shrink-0 h-5 w-5 transition group-hover:text-white"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -143,10 +121,10 @@
       </code>
     </div>
 
-    <p class="text-8xl font-extrabold text-red-500 p-6">03</p>
+    <p class="text-8xl font-extrabold p-6">03</p>
     <div class="bg-white col-span-2 rounded shadow p-6">
-      <h3 class="text-3xl font-semibold text-red-600 mb-2">Incinerate!</h3>
-      <p class="text-gray-700 mb-4">After access, we destroy your data and keep no trace of it. If you
+      <h3 class="text-3xl font-semibold mb-2">Incinerate!</h3>
+      <p class="mb-4">After access, we destroy your data and keep no trace of it. If you
         don't grab your data after a set amount of time it will also be
         destroyed 🔥</p>
 
@@ -155,13 +133,12 @@
 </section>
 
 <section id="faq" class="container mx-auto max-w-screen-xl py-32 px-4">
-  <h2 class="text-3xl font-extrabold text-red-600 mb-8 sm:text-5xl">FAQ</h2>
+  <h2 class="text-3xl font-extrabold mb-8 sm:text-5xl">FAQ</h2>
 
   <details class="group [&_summary::-webkit-details-marker]:hidden" open>
     <summary
       class="
-        flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50
-        p-4 text-gray-900
+        flex cursor-pointer items-center justify-between gap-1.5 rounded-lg p-4
       "
     >
       <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
@@ -182,7 +159,7 @@
       </svg>
     </summary>
 
-    <p class="mt-4 px-4 leading-relaxed text-gray-700">
+    <p class="mt-4 px-4 leading-relaxed">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
       veritatis molestias culpa in, recusandae laboriosam neque aliquid libero
       nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio
@@ -190,36 +167,10 @@
     </p>
   </details>
 
-  <details class="group [&_summary::-webkit-details-marker]:hidden">
-    <summary
-      class="
-        flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50
-        p-4 text-gray-900
-      "
-    >
-      <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
-
-      <svg
-        class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 9l-7 7-7-7"
-        />
-      </svg>
-    </summary>
-
-    <p class="mt-4 px-4 leading-relaxed text-gray-700">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-      veritatis molestias culpa in, recusandae laboriosam neque aliquid libero
-      nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio
-      corporis earum similique!
-    </p>
-  </details>
+  <%= render partial: "components/faq_item",
+  locals: {
+    headline: "Lorem ipsum dolor sit amet",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, sapiente animi! Accusantium inventore sunt ipsam? Molestiae voluptatum deleniti quia rerum reiciendis omnis. Sequi, repudiandae. Debitis earum eligendi neque architecto vel?",
+  } %>
 </section>
