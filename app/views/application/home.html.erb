@@ -5,19 +5,20 @@
     "
   >
     <div class="mx-auto text-center">
-      <h1 class="font-semibold text-3xl sm:text-5xl/leading-tight">
-        Data Sharing.
+      <h1 class="font-semibold text-4xl sm:text-6xl sm:leading-tight">
+        Simple Data Sharing.
         <br>
-        Secure, Simple, Self-Destructing.
+        Secure, Self-Destructing.
       </h1>
 
-      <p class="mx-auto max-w-lg mt-4 sm:text-xl/relaxed ">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-        tenetur fuga ducimus numquam ea!
+      <p class="mx-auto max-w-2xl mt-4 sm:text-xl/relaxed">
+        Data Dead Drop provides effortless, secure file sharing. Data
+        self-destroys after access. No Browser required - just use your
+        favorite command line client!
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <%= render layout: "components/button_link_inverted", locals: { path: "What" } do %>
+        <%= render layout: "components/button_link_inverted", locals: { path: new_path } do %>
           Get Started
         <% end %>
 
@@ -28,106 +29,50 @@
     </div>
   </div>
 </section>
-<section id="how-it-works" class="container mx-auto max-w-screen-xl p-4">
+<section id="how-it-works" class="">
 
-  <p class="text-lg font-extrabold sm:text-2xl mb-2 upcase">How It Works</p>
-  <h2 class="text-3xl font-extrabold sm:text-5xl mb-8">Share data in 3 simple steps</h2>
+  <div class="container mx-auto max-w-screen-xl p-4 py-24 ">
+    <p class="text-lg text-gray-600 font-bold sm:text-2xl mb-4 uppercase">How It Works</p>
+    <h2 class="text-3xl font-semibold sm:text-5xl">Share data in 3 steps</h2>
 
-  <div class="grid grid-cols-1 gap-8 items-center justify-between md:grid-cols-3">
-
-    <p class="text-8xl font-extrabold mb-4 p-6">01</p>
-    <div class="bg-white col-span-2 p-6 rounded shadow">
-      <h3 class="text-3xl font-semibold mb-2">Drop your data</h3>
-      <p class="mb-4">Drop some data in our
-        <%= link_to("Web UI", new_path, class: "no-underline hover:underline") %>
-        or upload data with your favorite command line client. In exchange,
-        you'll receive a secure link. Here's how you do it with Curl.</p>
-      <code
-        class="
-          text-sm sm:text-base inline-flex text-left items-center space-x-4 text-white
-          rounded-lg p-4 pl-6
-        "
-      >
-        <span class="flex gap-4">
-          <span class="shrink-0">
-          </span>
-
-          <span class="flex-1">
-            curl -X POST -F "upload[data]=@your-file.txt"
-            https://datadeaddrop.com/u.json
-          </span>
-        </span>
-
-        <button>
-          <svg
-            class="shrink-0 h-5 w-5 transition group-hover:text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path>
-            <path
-              d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
-            >
-            </path>
-          </svg>
-        </button>
-      </code>
-    </div>
-
-    <p class="text-8xl font-extrabold p-6">02</p>
     <div
       class="
-        bg-white md:col-start-1 md:row-start-2 col-span-2 rounded shadow p-6
+        py-16 grid grid-cols-1 gap-8 items-center justify-between md:grid-cols-4
       "
     >
-      <h3 class="text-3xl font-semibold mb-2">Grab your data</h3>
-      <p class="mb-4">Use your link to download your data, either via your browser or your
-        favorite command line client.</p>
+      <%= render "components/how_it_works_step" do |partial| %>
+        <% partial.step "01" %>
+        <% partial.title "Upload" %>
 
-      <code
-        class="
-          text-sm sm:text-base inline-flex text-left items-center space-x-4 text-white
-          rounded-lg p-4 pl-6
-        "
-      >
-        <span class="flex gap-4">
-          <span class="shrink-0">
-            $
-          </span>
+        <% partial.content do %>
+          Upload some data via our
+          <%= link_to("Web UI", new_path, class: link_class) %>
+          or use your favorite command line client. Specify how long data
+          should be kept and how often it can be accessed. You'll receive
+          unique and secure link to access your data.
+        <% end %>
+      <% end %>
 
-          <span class="flex-1">
-            curl -L http://datadeaddrop.com/d/your-secret-url.json >
-            your-file.txt
-          </span>
-        </span>
+      <%= render "components/how_it_works_step" do |partial| %>
+        <% partial.step "02" %>
+        <% partial.title "Download" %>
 
-        <button>
-          <svg
-            class="shrink-0 h-5 w-5 transition group-hover:text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path>
-            <path
-              d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
-            >
-            </path>
-          </svg>
-        </button>
-      </code>
-    </div>
+        <% partial.content do %>
+          Share your link, or use it yourself to download your data. You can
+          use your browser or hop on the command line.
+        <% end %>
+      <% end %>
 
-    <p class="text-8xl font-extrabold p-6">03</p>
-    <div class="bg-white col-span-2 rounded shadow p-6">
-      <h3 class="text-3xl font-semibold mb-2">Incinerate!</h3>
-      <p class="mb-4">After access, we destroy your data and keep no trace of it. If you
-        don't grab your data after a set amount of time it will also be
-        destroyed 🔥</p>
+      <%= render "components/how_it_works_step" do |partial| %>
+        <% partial.step "03" %>
+        <% partial.title "Incinerate" %>
 
+        <% partial.content do %>
+          Your data is automatically destroyed after being accessed a
+          predefined number of times. Even if nobody access it, your data is
+          deleted after a short expiration time 🔥
+        <% end %>
+      <% end %>
     </div>
   </div>
 </section>
@@ -135,37 +80,12 @@
 <section id="faq" class="container mx-auto max-w-screen-xl py-32 px-4">
   <h2 class="text-3xl font-extrabold mb-8 sm:text-5xl">FAQ</h2>
 
-  <details class="group [&_summary::-webkit-details-marker]:hidden" open>
-    <summary
-      class="
-        flex cursor-pointer items-center justify-between gap-1.5 rounded-lg p-4
-      "
-    >
-      <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
-
-      <svg
-        class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 9l-7 7-7-7"
-        />
-      </svg>
-    </summary>
-
-    <p class="mt-4 px-4 leading-relaxed">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-      veritatis molestias culpa in, recusandae laboriosam neque aliquid libero
-      nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio
-      corporis earum similique!
-    </p>
-  </details>
+  <%= render partial: "components/faq_item",
+  locals: {
+    headline: "Lorem ipsum dolor sit amet",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, sapiente animi! Accusantium inventore sunt ipsam? Molestiae voluptatum deleniti quia rerum reiciendis omnis. Sequi, repudiandae. Debitis earum eligendi neque architecto vel?",
+  } %>
 
   <%= render partial: "components/faq_item",
   locals: {
