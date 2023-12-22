@@ -32,28 +32,30 @@
 <section id="how-it-works" class="">
 
   <div class="container mx-auto max-w-screen-xl p-4 py-24 ">
-    <p class="text-lg text-gray-600 font-bold sm:text-2xl mb-4 uppercase">How It Works</p>
-    <h2 class="text-3xl font-semibold sm:text-5xl">Share data in 3 steps</h2>
+
+    <%= render "components/section_title",
+    title: "Share data in three steps",
+    subtitle: "How it works" %>
 
     <div
       class="
         py-16 grid grid-cols-1 gap-8 items-center justify-between md:grid-cols-4
       "
     >
-      <%= render "components/how_it_works_step" do |partial| %>
+      <%= render "components/step" do |partial| %>
         <% partial.step "01" %>
         <% partial.title "Upload" %>
 
         <% partial.content do %>
           Upload some data via our
-          <%= link_to("Web UI", new_path, class: link_class) %>
+          <%= render "components/link", name: "Web UI", url: new_path %>
           or use your favorite command line client. Specify how long data
           should be kept and how often it can be accessed. You'll receive
           unique and secure link to access your data.
         <% end %>
       <% end %>
 
-      <%= render "components/how_it_works_step" do |partial| %>
+      <%= render "components/step" do |partial| %>
         <% partial.step "02" %>
         <% partial.title "Download" %>
 
@@ -63,7 +65,7 @@
         <% end %>
       <% end %>
 
-      <%= render "components/how_it_works_step" do |partial| %>
+      <%= render "components/step" do |partial| %>
         <% partial.step "03" %>
         <% partial.title "Incinerate" %>
 
@@ -77,20 +79,167 @@
   </div>
 </section>
 
+<section class="">
+  <div
+    class="
+      container mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16
+    "
+  >
+    <div class="max-w-xl">
+      <%= render "components/section_title",
+      title: "What Makes Us Special",
+      subtitle: "Why Data Dead Drop" %>
+
+      <p class="mt-4">
+        There are so many file sharing tools out there. Why should you use this
+        one? I think Data Dead Drop is a bit special. Here is why:
+      </p>
+    </div>
+
+    <div
+      class="
+        mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-2
+      "
+    >
+      <%= render "components/feature",
+      title: "Anonymity",
+      text: "Data Dead Drop requires no sign-up. There are no cookies, and none of your data is ever collected, processed or sold." do |partial| %>
+        <% partial.icon do %>
+          <%= inline_svg "eye-off.svg" %>
+        <% end %>
+      <% end %>
+
+      <%= render "components/feature",
+        title: "Automation" do |partial| %>
+        <% partial.icon do %>
+          <%= inline_svg "server.svg" %>
+        <% end %>
+        <% partial.text do %>
+          Data Dead Drop is built with machines and automation in mind. No need
+          for browsers, just bring your favorite command line client. We
+          recommend
+          <%= render "components/link", name: "Curl", url: "https://curl.se/" %>
+          or
+          <%= render "components/link", name: "HTTpie", url: "https://httpie.io/" %>.
+        <% end %>
+      <% end %>
+
+      <%= render "components/feature",
+      title: "Security" do |partial| %>
+        <% partial.icon do %>
+          <%= inline_svg "shield.svg" %>
+        <% end %>
+        <% partial.text do %>
+          Your data is safe by design. Secure links are generated using the
+          <%= render "components/link",
+          name: "Diceware algorithm",
+          url: "https://en.wikipedia.org/wiki/Diceware" %>, making unauthorized access impossible. Uploaded data is fully
+          encrypted, we couldn't take a peek even if we wanted to.
+        <% end %>
+      <% end %>
+
+      <%= render "components/feature",
+        title: "Self-Destruction", 
+        text: "Once uploaded your data will be destroyed sooner rather than later. Per default anything you upload can only be accessed once. Even data that's never accessed will be deleted after a short time." do |partial| %>
+        <% partial.icon do %>
+          <%= inline_svg "trash.svg" %>
+        <% end %>
+      <% end %>
+
+      <%= render "components/feature",
+      title: "Free",
+      text: "Data Dead Drop is completely free, as in beer, forever. You can give us money, but you don't have to." do |partial| %>
+        <% partial.icon do %>
+          <%= inline_svg "dollar-sign.svg" %>
+        <% end %>
+      <% end %>
+
+      <%= render "components/feature",
+      title: "Open Source" do |partial| %>
+        <% partial.icon do %>
+          <%= inline_svg "github.svg" %>
+        <% end %>
+
+        <% partial.text do %>
+          Don't believe our claims? That's fine. You can read the source code
+          for this product on
+          <%= render "components/link",
+          name: "GitHub",
+          url: "https://github.com/hschne/data-dead-drop" %>. Data Dead Drop is built with love using
+          <%= render "components/link", name: "Ruby on Rails", url: "https://rubyonrails.org/" %>.
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
 <section id="faq" class="container mx-auto max-w-screen-xl py-32 px-4">
   <h2 class="text-3xl font-extrabold mb-8 sm:text-5xl">FAQ</h2>
 
-  <%= render partial: "components/faq_item",
-  locals: {
-    headline: "Lorem ipsum dolor sit amet",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, sapiente animi! Accusantium inventore sunt ipsam? Molestiae voluptatum deleniti quia rerum reiciendis omnis. Sequi, repudiandae. Debitis earum eligendi neque architecto vel?",
-  } %>
+  <div class=" divide-y divide-gray-100">
+    <%= render "components/faq",
+    title: "Is my data really, really secure?" do |partial| %>
+      <% partial.content do %>
+        The short answer is
+        <strong>yes</strong>. The long answer is that we use an encrypted AWS bucket to store your
+        data at rest. Secure links are generated with
+        <% render "components/link",
+        name: "the diceware algorithm",
+        url: "https://en.wikipedia.org/wiki/Diceware" %>
+        using three words. In theory these links are guessable. With really
+        powerful hardware you could guess a given link in
+        <% render "components/link",
+        name: "about nine days",
+        url:
+          "https://blog.1password.com/posts/2013/1password-hashcat-strong-master-passwords/hashcat-crack-times.png" %>
+        - that is without ignoring network latency. In practice, it is highly
+        unlikely to guess a given link.
+      <% end %>
+    <% end %>
 
-  <%= render partial: "components/faq_item",
-  locals: {
-    headline: "Lorem ipsum dolor sit amet",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, sapiente animi! Accusantium inventore sunt ipsam? Molestiae voluptatum deleniti quia rerum reiciendis omnis. Sequi, repudiandae. Debitis earum eligendi neque architecto vel?",
-  } %>
+    <%= render "components/faq",
+    title: "Who is this for?" do |partial| %>
+      <% partial.content do %>
+        Data Dead Drop was created to easily exchange keys or secrets between
+        independent computer systems. However, it would be useful for anyone
+        who requires anonymous, quick and secure data sharing that can't be
+        traced. Keep in mind that this service is not to be used for long term
+        storage, there are different services for that.
+      <% end %>
+    <% end %>
+
+    <%= render "components/faq",
+    title: "Can I upload anything?" do |partial| %>
+      <% partial.content do %>
+        We limit the size of uploads to 1MB. By uploading data you agree to our
+        terms and conditions. Data Dead Drop reserveres the right to delete any
+        data that is deemed illegal or inappropriate and take steps to block
+        users who upload such data.
+      <% end %>
+    <% end %>
+
+    <%= render "components/faq",
+    title: "Where can I report issues or leave feedback?" do |partial| %>
+      <% partial.content do %>
+        Head over to
+        <%= render "components/link",
+        name: "GitHub",
+        url: "https://github.com/hschne/data-dead-drop" %>
+        to report an issue or send an
+        <a href="mailto:support@datadeaddrop.com">Email</a>.
+      <% end %>
+    <% end %>
+
+    <%= render "components/faq",
+    title: "I think this is useful, can I give you money?" do |partial| %>
+      <% partial.content do %>
+        Data Dead Drop is cheap to run, thanks to utilizing a lean stack based
+        on SQlite and Ruby on Rails. Still, I appreciate the gesture. There are
+        currently no paid plans for using Data Dead Drop, but feel free to
+        <%= render "components/link",
+        name: "buy me a coffee",
+        url: "https://www.buymeacoffee.com/hschne" %>.
+      <% end %>
+    <% end %>
+  </div>
 </section>

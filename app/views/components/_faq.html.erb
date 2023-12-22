@@ -1,10 +1,10 @@
-<details class="group [&_summary::-webkit-details-marker]:hidden">
+<details class="group [&_summary::-webkit-details-marker]:hidden py-4">
   <summary
     class="
       flex cursor-pointer items-center justify-between gap-1.5 rounded-lg py-4
     "
   >
-    <h2 class="font-medium"><%= headline %></h2>
+    <h2 class="font-medium"><%= partial.title %></h2>
 
     <svg
       class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
@@ -22,7 +22,7 @@
     </svg>
   </summary>
 
-  <p class="mt-4 sm:px-4 leading-relaxed">
-    <%= content %>
+  <p class="mt-4 leading-relaxed">
+    <%= partial.content %>
   </p>
 </details>

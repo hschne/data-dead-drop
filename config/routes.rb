@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'errors/internal_server_error'
   root 'application#home'
 
+  get '/privacy', to: 'application#privacy', as: :privacy
+  get '/terms', to: 'application#terms', as: :terms
+
   get '/n', to: 'uploads#new', as: :new
   post '/u', to: 'uploads#upload', as: :upload
   get '/p/:id', to: 'uploads#preview', as: :preview
