@@ -19,9 +19,18 @@
 class Upload < ApplicationRecord
   has_one_attached :data
 
-  validates :data, attached: true, size: { less_than: 512.kilobytes, message: 'is must be smaller than 512 kb' }
+  validates :expiry, presence: true
+  validates :key, presence: true
+  validates :remaining_uses, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+  validates :data, attached: true, size: { less_than: 1024.kilobytes, message: 'must be smaller than 1 megabyte' }
 
-  def url; end
+  validate :expires_range
+
+  def expires_range
+    return if expiry < 61.minutes.from_now
+
+    errors.add(:expiry, 'must be less than an hour')
+  end
 
   def to_param
     key

@@ -2,6 +2,5 @@
 
 class ApplicationController < ActionController::Base
   def home; end
-  def privacy; end
-  def terms; end
+  def legal; end
 end
