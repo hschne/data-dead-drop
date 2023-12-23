@@ -3,7 +3,7 @@ class CleanupJob < ApplicationJob
 
   def perform
     Upload.where(expiry: (..Time.now))
-      .or(Upload.where('remaining_uses < ?', 1))
+      .or(Upload.where('uses < ?', 1))
       .destroy_all
   end
 end

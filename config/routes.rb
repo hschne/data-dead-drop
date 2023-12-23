@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   get '/legal', to: 'application#legal', as: :legal
 
-  get '/n', to: 'uploads#new', as: :new
-  post '/u', to: 'uploads#upload', as: :upload
-  get '/p/:id', to: 'uploads#preview', as: :preview
-  get '/d/:id', to: 'uploads#download', as: :download
+  get '/new', to: 'uploads#new', as: :new
+  post '/upload', to: 'uploads#upload', as: :upload
+  get '/preview/:id', to: 'uploads#preview', as: :preview
+  get '/download/:id', to: 'uploads#download', as: :download
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Preview error pages

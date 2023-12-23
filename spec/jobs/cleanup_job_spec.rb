@@ -10,7 +10,7 @@ RSpec.describe CleanupJob do
   end
 
   it 'deletes uploads with no remaining uses' do
-    upload = create(:upload, remaining_uses: 0)
+    upload = create(:upload, uses: 0)
 
     described_class.perform_now
 

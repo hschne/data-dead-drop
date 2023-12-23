@@ -4,13 +4,13 @@
 #
 # Table name: uploads
 #
-#  id             :integer          not null, primary key
-#  expiry         :datetime         not null
-#  key            :string           not null
-#  previewed      :boolean          default(FALSE), not null
-#  remaining_uses :integer          default(1), not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id         :integer          not null, primary key
+#  expiry     :datetime         not null
+#  key        :string           not null
+#  previewed  :boolean          default(FALSE), not null
+#  uses       :integer          default(1), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
@@ -21,7 +21,7 @@ class Upload < ApplicationRecord
 
   validates :expiry, presence: true
   validates :key, presence: true
-  validates :remaining_uses, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+  validates :uses, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
   validates :data, attached: true, size: { less_than: 1024.kilobytes, message: 'must be smaller than 1 megabyte' }
 
   validate :expires_range

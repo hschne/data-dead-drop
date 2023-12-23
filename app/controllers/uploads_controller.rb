@@ -6,11 +6,12 @@ class UploadsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[upload preview]
 
   def new
-    @upload = Upload.new(expiry: 10.minutes.from_now, remaining_uses: 1)
+    @upload = Upload.new(expiry: 10, uses: 1)
   end
 
   def upload
     @upload = Upload.new(upload_params)
+    @upload.expiry = upload_params[:expiry].to_i.minutes.from_now
     @upload.key = Upload.generate_key
 
     respond_to do |format|
@@ -32,7 +33,7 @@ class UploadsController < ApplicationController
 
   def download
     @upload = upload_scope.find_by!(key: params[:id])
-    @upload.decrement!(:remaining_uses)
+    @upload.decrement!(:uses)
 
     redirect_to(@upload.data.url(disposition: 'attachment', filename: @upload.data.filename.to_s),
                 allow_other_host: true)
@@ -41,14 +42,13 @@ class UploadsController < ApplicationController
   private
 
   def upload_scope
-    Upload
-    # Upload.where('expiry > ?', DateTime.now).where('remaining_uses > ?', 0)
+    Upload.where('expiry > ?', DateTime.now).where(uses: (1..))
   end
 
   # Only allow a list of trusted parameters through.
   def upload_params
     params
-      .require(:upload).permit(:data, :expiry, :remaining_uses)
-      .with_defaults(expiry: 10.minutes.from_now, remaining_uses: 1)
+      .require(:upload).permit(:data, :expiry, :uses)
+      .with_defaults(expiry: 10.minutes.from_now, uses: 1)
   end
 end

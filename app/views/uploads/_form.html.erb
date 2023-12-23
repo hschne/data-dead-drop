@@ -1,4 +1,4 @@
-<%= form_with(model: upload, class: "flex flex-col gap-4 py-4", url: upload_path) do |form| %>
+<%= form_with(model: upload, class: "flex flex-col gap-4 py-4 justify-center items-center", url: upload_path) do |form| %>
   <% if upload.errors.any? %>
     <div
       id="error_explanation"
@@ -40,26 +40,23 @@
     <%= form.file_field :data, class: "hidden", data: { action: "change->drop#display" } %>
   <% end %>
 
-  <div class="flex flex-col sm:flex-row align-center grow gap-4">
+  <div class="flex flex-col w-full sm:flex-row align-center grow gap-4">
     <div class="w-full">
       <%= form.label :expiry %>
       <%= form.select(
         :expiry,
-        [
-          ["1 Minutes", 1.minute.from_now],
-          ["10 Minutes", 10.minutes.from_now],
-          ["30 Minutes", 30.minutes.from_now],
-          ["60 Minutes", 60.minutes.from_now],
-        ],
-        {},
+        [["1 Minute", 1], ["10 Minutes", 10], ["30 Minutes", 30], ["60 Minutes", 60]],
+        { selected: 10 },
         class:
           "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
       ) %>
+
     </div>
 
     <div class="w-full">
-      <%= form.label :remaining_uses, "Uses" %>
-      <%= form.number_field :remaining_uses,
+      <%= form.label :uses, "Uses" %>
+      <%= form.number_field :uses,
+                        value: 1,
                         min: "1",
                         max: "5",
                         class:
@@ -67,10 +64,10 @@
     </div>
   </div>
 
-  <div class="flex flex-row justify-center align-center w-full py-8">
+  <div class="flex flex-row justify-center align-center w-full sm:w-1/2 py-8">
     <%= form.submit "Upload",
                 class:
                   "block text-white font-semibold outline-none bg-gray-800 w-full rounded-full grow px-12 py-3 text-sm focus:outline-none focus:ring sm:w-auto
-                                                                                                                                  " %>
+                                                                                                                                                                              " %>
   </div>
 <% end %>

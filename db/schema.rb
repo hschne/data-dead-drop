@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_18_090147) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_23_172847) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,30 +39,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_18_090147) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "dead_drops", force: :cascade do |t|
-    t.string "url"
-    t.datetime "expiry"
-    t.integer "uses"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "dice_words", force: :cascade do |t|
     t.string "words"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dicewords", force: :cascade do |t|
-    t.string "words"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "drops", force: :cascade do |t|
-    t.string "path"
-    t.datetime "expiry"
-    t.integer "remaining_uses"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,7 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_18_090147) do
   create_table "uploads", force: :cascade do |t|
     t.string "key", null: false
     t.datetime "expiry", null: false
-    t.integer "remaining_uses", default: 1, null: false
+    t.integer "uses", default: 1, null: false
     t.boolean "previewed", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
