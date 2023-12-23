@@ -1,72 +1,119 @@
-<section class="px-4 py-32">
-  <div class="mx-auto max-w-2xl ">
-    <h1 class="font-bold text-4xl">New upload</h1>
+<section class="px-4 py-16 flex flex-col gap-8 mx-auto max-w-2xl">
+  <div id="browser-upload">
+    <h1 class="font-semibold text-4xl mb-8">Upload file</h1>
 
     <%= render "form", upload: @upload %>
-    <div class="flex my-2 text-sm font-semibold items-center text-gray-800">
+
+    <div>
+    </div>
+
+    <div class="flex my-2 text-3xl font-semibold items-center text-gray-800">
       <div class="flex-grow border-t h-px mr-3"></div>
       OR
       <div class="flex-grow border-t h-px ml-3"></div>
     </div>
-    <div>
-      <div class="sm:hidden">
-        <label for="Tab" class="sr-only">Tab</label>
+  </div>
+  <div class="cli-upload">
+    <h1 class="font-semibold text-4xl mb-8">Use the command line</h1>
+    <div class="sm:hidden">
+      <label for="Tab" class="sr-only">Tab</label>
 
-        <select id="Tab" class="w-full rounded-md border-gray-200">
-          <option>Settings</option>
-          <option>Messages</option>
-          <option>Archive</option>
-          <option select>Notifications</option>
-        </select>
-      </div>
+      <select id="Tab" class="w-full rounded-md border-gray-200">
+        <option>Settings</option>
+        <option>Messages</option>
+        <option>Archive</option>
+        <option select>Notifications</option>
+      </select>
+    </div>
 
-      <div class="hidden sm:block">
-        <div class="border-b border-gray-200">
-          <nav class="-mb-px flex gap-6">
-            <a
-              href="#"
-              class="
-                shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500
-                hover:text-gray-700
-              "
-            >
-              Settings
-            </a>
+    <div class="hidden sm:block">
+      <div
+        class=""
+        data-controller="tabs"
+        data-tabs-index-value="0"
+        data-tabs-active-tab-class="border-b-2 border-gray-800 text-gray-800"
+      >
+        <nav class="-mb-px flex gap-6 border-b border-gray-200">
+          <a
+            href="#curl"
+            data-tabs-target="tab"
+            data-action="click->tabs#change"
+            class="
+              inline-flex shrink-0 items-center gap-2 px-1 pb-4 text-sm font-medium
+              text-gray-500 hover:border-gray-300 hover:text-gray-700
+            "
+          >
+            Curl
+          </a>
 
-            <a
-              href="#"
-              class="
-                shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500
-                hover:text-gray-700
-              "
-            >
-              Messages
-            </a>
+          <a
+            href="#httpie"
+            data-tabs-target="tab"
+            data-action="click->tabs#change"
+            class="
+              inline-flex shrink-0 items-center gap-2 px-1 pb-4 text-sm font-medium
+              text-gray-500 hover:border-gray-300 hover:text-gray-700
+            "
+          >
+            HTTPie
+          </a>
 
-            <a
-              href="#"
-              class="
-                shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500
-                hover:text-gray-700
-              "
-            >
-              Archive
-            </a>
+          <a
+            href="#wget"
+            data-tabs-target="tab"
+            data-action="click->tabs#change"
+            class="
+              inline-flex shrink-0 items-center gap-2 px-1 pb-4 text-sm font-medium
+              text-gray-500 hover:border-gray-300 hover:text-gray-700
+            "
+          >
+            Wget
+          </a>
 
-            <a
-              href="#"
-              class="
-                shrink-0 rounded-t-lg border border-gray-300 border-b-white p-3 text-sm
-                font-medium text-sky-600
-              "
-            >Notifications
-            </a>
-          </nav>
+        </nav>
 
+        <div id="curl" class="hidden py-4" data-tabs-target="panel">
+          <code
+            data-controller="clipboard"
+            class="
+              text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800
+              text-white rounded-lg p-4 pl-6 overflow-scroll
+            "
+          >
+            <span class="overflow-x-scroll" data-clipboard-target="source">
+              curl -X POST -F "upload[data]=@gnome.jpg" -F
+              "upload[remaining_uses]=3" http://localhost:3000/u.json
+            </span>
+
+            <button data-clipboard-target="trigger" data-action="clipboard#copy">
+              <svg
+                class="
+                  shrink-0 h-5 w-5 transition text-gray-500 group-hover:text-white
+                "
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path>
+                <path
+                  d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
+                >
+                </path>
+              </svg>
+            </button>
+
+          </code>
+        </div>
+
+        <div id="httpie" class="hidden py-4 px-4" data-tabs-target="panel">
+          Tab panel 2
+        </div>
+
+        <div class="hidden py-4 px-4" data-tabs-target="panel">
         </div>
       </div>
     </div>
-
   </div>
 
 </section>
