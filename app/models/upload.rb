@@ -26,6 +26,10 @@ class Upload < ApplicationRecord
 
   validate :expires_range
 
+  def minutes_left
+    ((expiry - Time.zone.now) / 1.minute).to_i
+  end
+
   def expires_range
     return if expiry < 61.minutes.from_now
 

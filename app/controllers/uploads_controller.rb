@@ -26,13 +26,13 @@ class UploadsController < ApplicationController
   end
 
   def preview
-    @upload = upload_scope.where(previewed: false).find_by!(key: params[:id])
+    @upload = upload_scope.find_by!(key: params[:id])
     @upload.update!(previewed: true)
     render :preview
   end
 
   def download
-    @upload = upload_scope.find_by!(key: params[:id])
+    @upload = upload_scope.find_by(key: params[:id])
     @upload.decrement!(:uses)
 
     redirect_to(@upload.data.url(disposition: 'attachment', filename: @upload.data.filename.to_s),
@@ -42,7 +42,8 @@ class UploadsController < ApplicationController
   private
 
   def upload_scope
-    Upload.where('expiry > ?', DateTime.now).where(uses: (1..))
+    Upload
+    # Upload.where('expiry > ?', DateTime.now).where(uses: (1..))
   end
 
   # Only allow a list of trusted parameters through.

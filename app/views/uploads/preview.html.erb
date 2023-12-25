@@ -1,18 +1,113 @@
-<section>
-  <h2>A Preview</h2>
-  <div class="mx-auto md:w-2/3 w-full flex">
-    <div class="mx-auto">
-      <% if notice.present? %>
-        <p
-          class="
-            py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block
-          "
-          id="notice"
-        ><%= notice %></p>
-      <% end %>
+<section class="px-4 py-16 flex flex-col gap-8 mx-auto max-w-screen-lg">
+  <h2 class="font-semibold text-4xl mb-8">File uploaded</h2>
 
-      <%= render @upload %>
+  <p class=" py-2 px-3 bg-red-50 text-red-500 rounded-lg inline-block ">
+    Your file will expire in
+    <strong><%= "#{@upload.minutes_left} #{"Minute".pluralize(@upload.minutes_left)}" %></strong>
+    or after
+    <strong><%= @upload.uses %>
+      more
+      <%= "uses".pluralize(@upload.uses) %>
+    </strong>. Remember or write down your file key! It will not be shown again after
+    you close or reload this window.
+  </p>
+  <%= render "components/code" do %>
+    <%= @upload.key %>
+  <% end %>
 
+  <p class="mt-8">To download your file visit this link or use your favorite API client.</p>
+  <%= render "components/code" do %>
+    <%= Rails.application.routes.url_helpers.download_url(@upload) %>
+  <% end %>
+
+  <div>
+    <div class="sm:hidden mt-8">
+      <label for="Tab" class="sr-only">Tab</label>
+
+      <select id="Tab" class="w-full rounded-md border-gray-200">
+        <option>Curl</option>
+        <option>Wget</option>
+        <option>HTTPie</option>
+        <option select>Notifications</option>
+      </select>
+    </div>
+
+    <div class="hidden sm:block">
+      <div
+        class=""
+        data-controller="tabs"
+        data-tabs-index-value="0"
+        data-tabs-active-tab-class="border-b-2 border-gray-800 text-gray-800"
+      >
+        <nav class="-mb-px flex gap-6 border-b border-gray-200">
+          <a
+            href="#curl"
+            data-tabs-target="tab"
+            data-action="click->tabs#change"
+            class="
+              inline-flex shrink-0 items-center gap-2 px-1 pb-4 text-sm font-medium
+              text-gray-500 hover:border-gray-300 hover:text-gray-700
+            "
+          >
+            Curl
+          </a>
+
+          <a
+            href="#httpie"
+            data-tabs-target="tab"
+            data-action="click->tabs#change"
+            class="
+              inline-flex shrink-0 items-center gap-2 px-1 pb-4 text-sm font-medium
+              text-gray-500 hover:border-gray-300 hover:text-gray-700
+            "
+          >
+            HTTPie
+          </a>
+
+          <a
+            href="#wget"
+            data-tabs-target="tab"
+            data-action="click->tabs#change"
+            class="
+              inline-flex shrink-0 items-center gap-2 px-1 pb-4 text-sm font-medium
+              text-gray-500 hover:border-gray-300 hover:text-gray-700
+            "
+          >
+            Wget
+          </a>
+
+        </nav>
+
+        <div id="curl" class="hidden py-4" data-tabs-target="panel">
+          <%= render "components/code" do %>
+            curl
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>
+            \<br>
+            &nbsp;&nbsp;-L -H "Accept: application/json" &gt; "<%= @upload.data.filename.to_s %>"<br>
+          <% end %>
+        </div>
+
+        <div id="httpie" class="hidden py-4" data-tabs-target="panel">
+          <%= render "components/code" do %>
+            curl
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>
+            \<br>
+            &nbsp;&nbsp;-X POST -H "Accept: application/json" \<br>
+            &nbsp;&nbsp;-F "upload[data]=@file.txt" -F "upload[expiry]=10" -F
+            "upload[uses]=3"
+          <% end %>
+        </div>
+
+        <div class="hidden py-4" data-tabs-target="panel">
+          <%= render "components/code" do %>
+            curl https://datadeaddrop.com/upload \<br>
+            &nbsp;&nbsp;-X POST -H "Accept: application/json" \<br>
+            &nbsp;&nbsp;-F "upload[data]=@file.txt" -F "upload[expiry]=10" -F
+            "upload[uses]=3"
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+
 </section>

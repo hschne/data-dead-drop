@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'errors/not_found'
-  get 'errors/internal_server_error'
   root 'application#home'
 
-  get '/legal', to: 'application#legal', as: :legal
+  get '/legal', to: 'application#legal'
+  get '/documentation', to: 'application#documentation'
 
   get '/new', to: 'uploads#new', as: :new
   post '/upload', to: 'uploads#upload', as: :upload
