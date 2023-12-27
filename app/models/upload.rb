@@ -45,7 +45,7 @@ class Upload < ApplicationRecord
     DiceWord
       .find(*ids)
       .map(&:words)
-      .map { |w| w.split(' ') }
+      .map(&:split)
       .map { |t| t[rand(0..t.length - 1)] }.flatten.join('-')
   end
 end

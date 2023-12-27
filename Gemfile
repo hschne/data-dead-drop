@@ -93,4 +93,4 @@ group :development do
   # gem "spring"
 end
 
-gem "nice_partials", "~> 0.10.0"
+gem 'nice_partials', '~> 0.10.0'

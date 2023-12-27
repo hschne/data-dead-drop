@@ -42,8 +42,7 @@ class UploadsController < ApplicationController
   private
 
   def upload_scope
-    Upload
-    # Upload.where('expiry > ?', DateTime.now).where(uses: (1..))
+    Upload.where('expiry > ?', DateTime.now).where(uses: (1..))
   end
 
   # Only allow a list of trusted parameters through.

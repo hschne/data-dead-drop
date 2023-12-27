@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rufus-scheduler'
 
 stop = defined?(Rails::Console) ||
