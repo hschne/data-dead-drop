@@ -1,18 +1,89 @@
 # Data Dead Drop
 
-## TODOs: 
+Data Dead Drop is a platform for effortless, secure file sharing. Data self-destroys after access. No browser required - just use your favorite command line client.
 
-- [ ] Generate memorable URL
-- [ ] Upload file via UI
-- [ ] Show confirm dialog
-- [ ] Destroy data after access
-- [ ] Destroy data after expiry
+## Usage
 
+Visit https://datadeaddrop.com to upload data, or upload data via the command line, for example using Curl:
 
-# FAQ
+```bash
+curl https://datadeaddrop.com/upload \
+  -X POST -H "Accept: application/json" \
+  -F "upload[data]=@file.txt" -F "upload[expiry]=10" -F "upload[uses]=3"
+```
 
-## Passwords & Security
+Uploaded data will automatically be deleted after the specified number of minutes or uses. The maximum expiry is 60 minutes, and the maximum number of uses is 10. File size is limited to 1MB.
 
-To generate one-time-passwords the app utilizes the [Diceware method](https://std.com/~reinhold/diceware.html) with a slightly modifed Diceword list as provided by the [passphrase gem](https://github.com/esumbar/passphrase).
+Data Dead drop will return a unique link generated using the [Diceware algorithm](https://en.wikipedia.org/wiki/Diceware) method. Use this link to download the file in the browser or via the command line.
 
-See also [cryptographic safety](https://blog.1password.com/1password-hashcat-strong-master-passwords/), [diceware at 1password](https://blog.1password.com/toward-better-master-passwords)
+```bash
+curl https://datadeaddrop.com/download/your-secret-key \
+  -L -H "Accept: application/json" > "your-file.text"
+```
+
+### API Documentation
+
+Data Dead Drop's API is simple. If you want to build your own client use the `/upload` and `/download` endpoints.
+
+#### Upload
+
+```json
+# POST /upload
+{
+  "data":"file.txt",
+  "expiry":10,
+  "uses":1
+}
+```
+
+A successful request will return status code `200` and the following payload: 
+
+```json
+{
+  "name":"file.txt"
+  "key":"your-secret-key",
+  "url":"http://datadeaddrop/d/your-secret-key",
+  "expiry":"2024-12-24T18:10:00.000Z",
+  "uses":3,
+  "created_at":"2023-12-24T18:00:00.000Z",
+}
+```
+
+#### Download
+
+```json
+# GET /download/your-secret-key
+```
+
+## Development
+
+This is a Ruby on Rails application. To get started, clone the repo, install dependencies and prepare the database. You'll also need to seed the database with a Diceware word list.
+
+```bash
+bundle install
+rails db:setup
+rake import:dice_words
+```
+
+The start the server with 
+
+```bash
+rails server
+```
+
+### Testing
+
+Data Dead Drop uses RSpec for testing. Run the test suite with
+
+```bash
+bundle exec rspec
+```
+
+### Deployment
+
+Data Dead Drop is automatically deployed via GitHub actions using [Kamal](https://kamal-deploy.org/). To manually deploy you'll need SSH access to the server and access to the Docker Hub registry.
+
+```bash
+kamal setup
+kamal deploy
+```

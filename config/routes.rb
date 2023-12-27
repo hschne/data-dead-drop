@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root 'application#home'
 
   get '/legal', to: 'application#legal'
-  get '/documentation', to: 'application#documentation'
 
   get '/new', to: 'uploads#new', as: :new
   post '/upload', to: 'uploads#upload', as: :upload

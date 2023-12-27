@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def link_class
-    'no-underline hover:underline'
+    'underline font-medium hover:no-underline active:text-gray-500'
   end
 end

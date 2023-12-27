@@ -13,8 +13,8 @@
 
       <p class="mx-auto max-w-2xl mt-4 sm:text-xl/relaxed">
         Data Dead Drop provides effortless, secure file sharing. Data
-        self-destroys after access. No Browser required - just use your
-        favorite command line client!
+        self-destroys after access. No browser required - just use your
+        favorite command line client.
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-4">
@@ -212,7 +212,7 @@
     title: "Can I upload anything?" do |partial| %>
       <% partial.content do %>
         We limit the size of uploads to 1MB. By uploading data you agree to our
-        terms and conditions. Data Dead Drop reserveres the right to delete any
+        terms and conditions. Data Dead Drop reserves the right to delete any
         data that is deemed illegal or inappropriate and take steps to block
         users who upload such data.
       <% end %>
@@ -227,18 +227,6 @@
         url: "https://github.com/hschne/data-dead-drop" %>
         to report an issue or send an
         <a href="mailto:support@datadeaddrop.com">Email</a>.
-      <% end %>
-    <% end %>
-
-    <%= render "components/faq",
-    title: "I think this is useful, can I give you money?" do |partial| %>
-      <% partial.content do %>
-        Data Dead Drop is cheap to run, thanks to utilizing a lean stack based
-        on SQlite and Ruby on Rails. Still, I appreciate the gesture. There are
-        currently no paid plans for using Data Dead Drop, but feel free to
-        <%= render "components/link",
-        name: "buy me a coffee",
-        url: "https://www.buymeacoffee.com/hschne" %>.
       <% end %>
     <% end %>
   </div>
