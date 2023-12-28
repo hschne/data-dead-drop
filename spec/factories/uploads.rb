@@ -21,6 +21,6 @@ FactoryBot.define do
     sequence(:key) { |i| "random-key-#{i}" }
     expiry { 10.minutes.from_now }
     uses { 1 }
-    data { Rack::Test::UploadedFile.new('spec/fixtures/files/sample.txt', 'image/png') }
+    data { Rack::Test::UploadedFile.new('spec/fixtures/files/sample.txt', 'text/plain') }
   end
 end

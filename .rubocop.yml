@@ -23,7 +23,7 @@ RSpec/NestedGroups:
   Max: 5
 
 RSpec/MultipleExpectations:
-  Max: 2
+  Max: 5
 
 Style/BlockDelimiters:
   Exclude:

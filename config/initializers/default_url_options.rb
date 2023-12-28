@@ -2,6 +2,7 @@
 
 hosts = {
   development: 'localhost:3000',
+  test: 'localhost:3000',
   production: 'datadeaddrop.com'
 }.freeze
 

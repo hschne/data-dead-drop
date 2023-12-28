@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   match '/404', to: 'errors#not_found', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
 
-  if Rails.application.config.active_storage.service == :local
+  if %i[local test].include?(Rails.application.config.active_storage.service)
     scope ActiveStorage.routes_prefix do
       get '/disk/:encoded_key/*filename' => 'active_storage/disk#show', as: :rails_disk_service
       put '/disk/:encoded_token' => 'active_storage/disk#update', as: :update_rails_disk_service

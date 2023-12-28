@@ -26,13 +26,13 @@ class UploadsController < ApplicationController
   end
 
   def preview
-    @upload = upload_scope.find_by!(key: params[:id])
+    @upload = upload_scope.where(previewed: false).find_by!(key: params[:id])
     @upload.update!(previewed: true)
     render :preview
   end
 
   def download
-    @upload = upload_scope.find_by(key: params[:id])
+    @upload = upload_scope.find_by!(key: params[:id])
     @upload.decrement!(:uses)
 
     redirect_to(@upload.data.url(disposition: 'attachment', filename: @upload.data.filename.to_s),
@@ -49,6 +49,6 @@ class UploadsController < ApplicationController
   def upload_params
     params
       .require(:upload).permit(:data, :expiry, :uses)
-      .with_defaults(expiry: 10.minutes.from_now, uses: 1)
+      .with_defaults(expiry: 10, uses: 1)
   end
 end

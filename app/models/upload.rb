@@ -24,7 +24,7 @@ class Upload < ApplicationRecord
   validates :uses, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
   validates :data, attached: true, size: { less_than: 1024.kilobytes, message: 'must be smaller than 1 megabyte' }
 
-  validate :expires_range
+  validate :expires_range, if: -> { expiry.present? }
 
   def minutes_left
     ((expiry - Time.zone.now) / 1.minute).to_i
