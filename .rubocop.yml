@@ -9,7 +9,7 @@ AllCops:
     - bin/*
     - db/schema.rb
     - db/migrate/**/*
-    - vendor/**/*.rb
+    - "vendor/**/*"
 
 Layout/LineLength:
   Max: 120
