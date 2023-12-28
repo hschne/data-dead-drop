@@ -1,6 +1,15 @@
+<div align="center">
+
 # Data Dead Drop
 
-Data Dead Drop is a platform for effortless, secure file sharing. Data self-destroys after access. No browser required - just use your favorite command line client.
+<img alt="logo" src="app/assets/images/logo.png" width="240px" height="auto">
+
+### Simple, secure file sharing. Data self-destroys after access.
+
+[![Main](https://github.com/hschne/data-dead-drop/actions/workflows/main.yml/badge.svg)](https://github.com/hschne/data-dead-drop/actions/workflows/main.yml)
+[![License](https://img.shields.io/github/license/hschne/data-dead-drop)](https://img.shields.io/github/license/hschne/data-dead-drop)
+
+</div>
 
 ## Usage
 
