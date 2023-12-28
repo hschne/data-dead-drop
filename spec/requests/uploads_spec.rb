@@ -75,7 +75,6 @@ RSpec.describe 'Uploads' do
 
         expect(response).to be_unprocessable
         json = response.parsed_body
-        puts json
         expect(json['data']).to eq(["can't be blank"])
       end
     end
