@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        sans: ["Space Grotesk", ...defaultTheme.fontFamily.sans],
       },
       boxShadow: {
         brutal:

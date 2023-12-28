@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="210mm"
+   viewBox="0 0 210 210"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.20222202"
+     inkscape:cx="195.32986"
+     inkscape:cy="0"
+     inkscape:window-width="1896"
+     inkscape:window-height="1026"
+     inkscape:window-x="10"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1"
+       transform="matrix(1.5806961,0,0,1.5806961,-76.601102,-74.728113)">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         d="M 73.256315,57.022345 V 170.38139 c 0,0 86.608635,0.25401 86.608635,-59.08965 0,-53.645548 -86.608635,-54.269395 -86.608635,-54.269395 z"
+         id="path1"
+         sodipodi:nodetypes="ccsc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke-width:0.207423"
+         d="m 82.611599,68.39578 v 88.86942 c 0,0 67.898071,0.19914 67.898071,-46.32416 0,-42.056187 -67.898071,-42.54526 -67.898071,-42.54526 z"
+         id="path2"
+         sodipodi:nodetypes="ccsc" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.145213"
+         d="M 92.793588,79.581095 V 141.7968 c 0,0 47.534092,0.13942 47.534092,-32.43063 0,-29.442684 -47.534092,-29.785075 -47.534092,-29.785075 z"
+         id="path3"
+         sodipodi:nodetypes="ccsc" />
+    </g>
+  </g>
+</svg>

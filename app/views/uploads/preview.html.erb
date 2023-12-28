@@ -1,7 +1,7 @@
 <section class="px-4 py-16 flex flex-col gap-8 mx-auto max-w-screen-lg">
   <h2 class="font-semibold text-4xl mb-4">File uploaded</h2>
 
-  <p class=" py-2 px-3 bg-red-50 text-red-500 rounded-lg inline-block ">
+  <p class=" py-2 px-3 bg-amber-50 text-amber-500 rounded-lg inline-block ">
     Your file will expire in
     <strong><%= "#{@upload.minutes_left} #{"Minute".pluralize(@upload.minutes_left)}" %></strong>
     or after
@@ -88,15 +88,15 @@
         <div id="httpie" class="hidden py-4" data-tabs-target="panel">
           <%= render "components/code" do %>
             http -d
-            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json \<br>
-
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>
+            .json
           <% end %>
         </div>
 
         <div class="hidden py-4" data-tabs-target="panel">
           <%= render "components/code" do %>
             wget -O "<%= @upload.file.filename.to_s %>"
-            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json \<br>
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json
           <% end %>
         </div>
       </div>

@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -25,9 +31,13 @@
           mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4
         "
       >
-        <a class=" flex flex-row gap-1 items-center" href="/">
-          <span class="text-xl text-bold font-extrabold">Data Dead Drop</span>
-        </a>
+
+        <div class="flex flex-row justify-center items-center gap-2">
+          <%= inline_svg "logo.svg", class: "h-8 w-8 rounded bg-black" %>
+          <a class=" flex flex-row gap-1 items-center" href="/">
+            <span class="text-xl text-bold font-extrabold">Data Dead Drop</span>
+          </a>
+        </div>
         <a
           class="
             block text-white font-semibold outline-none bg-gray-800 rounded-full px-12 py-3
@@ -47,7 +57,11 @@
     <footer class="bg-gray-50 border-t border-gray-100 ">
       <div class="mx-auto max-w-screen-xl mt-12 py-6 p-4">
         <div class="text-center sm:flex sm:justify-between sm:text-left">
-          <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">&copy; 2023 Hans Schnedlitz</p>
+          <p class="mt-4 text-sm sm:order-first sm:mt-0">
+            &copy; 2023
+            <%= render "components/link",
+            name: "Hans Schnedlitz",
+            url: "https://github.com/hschne" %></p>
 
           <ul
             class="

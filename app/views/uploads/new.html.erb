@@ -80,7 +80,8 @@
         <%= render "components/code" do %>
           http -f POST
           <%= Rails.application.routes.default_url_options[:host] %>/upload.json \<br>
-          "upload[file]@README.md" "upload[expiry]=10" "upload[uses]=3"
+          &nbsp;&nbsp;"upload[file]@README.md" "upload[expiry]=10"
+          "upload[uses]=3"
         <% end %>
       </div>
     </div>
