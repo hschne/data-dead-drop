@@ -22,7 +22,7 @@ class Upload < ApplicationRecord
   validates :expiry, presence: true
   validates :key, presence: true
   validates :uses, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
-  validates :data, attached: true, size: { less_than: 1024.kilobytes, message: 'must be smaller than 1 megabyte' }
+  validates :data, attached: true, size: { less_than: 1024.kilobytes, message: 'must be smaller than 1 megabyte' } # rubocop:disable Rails/I18nLocaleTexts
 
   validate :expires_range, if: -> { expiry.present? }
 

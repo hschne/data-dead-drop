@@ -5,6 +5,10 @@ require:
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/migrate/**/*
 
 Layout/LineLength:
   Max: 120
@@ -12,8 +16,14 @@ Layout/LineLength:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
+Metrics/AbcSize:
+  Enabled: false
+
 Metrics/BlockLength:
-  AllowedMethods: ["describe", "context"]
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
 
 RSpec/ExampleLength:
   Exclude:

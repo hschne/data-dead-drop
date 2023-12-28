@@ -14,7 +14,7 @@ def import_dicewords
     /^(?<die_rolls>[123456]{5})\s+(?<words>.*)$/ =~ line
     { id: die_rolls, words: }
   end
-  DiceWord.insert_all(words)
+  DiceWord.insert_all(words) # rubocop:disable Rails/SkipsModelValidations
 end
 
 import_dicewords unless DiceWord.any?

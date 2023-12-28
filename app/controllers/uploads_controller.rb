@@ -33,7 +33,7 @@ class UploadsController < ApplicationController
 
   def download
     @upload = upload_scope.find_by!(key: params[:id])
-    @upload.decrement!(:uses)
+    @upload.decrement!(:uses) # rubocop:disable Rails/SkipsModelValidations
 
     redirect_to(@upload.data.url(disposition: 'attachment', filename: @upload.data.filename.to_s),
                 allow_other_host: true)
