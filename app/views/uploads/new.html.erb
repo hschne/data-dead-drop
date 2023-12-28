@@ -17,7 +17,8 @@
   <div class="cli-upload">
     <h1 class="font-semibold text-4xl mb-8">Upload via API</h1>
     <p class="mb-8">Upload files using Data Dead Drop's API. We recommend your favourite HTTP
-      client.
+      client. For additional information, please refer to the
+      <a href="https://github.com/hschne/data-dead-drop#api-documentation">API documentation</a>.
     </p>
 
     <div
@@ -33,8 +34,7 @@
           class="w-full rounded-md border-gray-200"
           data-action="change->tabs#change"
         >
-          <option select>Curl</option>
-          <option>Wget</option>
+          <option select>CUrl</option>
           <option>HTTPie</option>
         </select>
       </div>
@@ -50,7 +50,7 @@
               text-gray-500 hover:border-gray-300 hover:text-gray-700
             "
           >
-            Curl
+            cURL
           </a>
 
           <a
@@ -64,26 +64,13 @@
           >
             HTTPie
           </a>
-
-          <a
-            href="#wget"
-            data-tabs-target="tab"
-            data-action="click->tabs#change"
-            class="
-              inline-flex shrink-0 items-center gap-2 px-1 pb-4 text-sm font-medium
-              text-gray-500 hover:border-gray-300 hover:text-gray-700
-            "
-          >
-            Wget
-          </a>
-
         </nav>
       </div>
 
       <div id="curl" class="py-4" data-tabs-target="panel">
         <%= render "components/code" do %>
-          curl https://datadeaddrop.com/upload \<br>
-          &nbsp;&nbsp;-X POST -H "Accept: application/json" \<br>
+          curl
+          <%= Rails.application.routes.default_url_options[:host] %>/upload.json \<br>
           &nbsp;&nbsp;-F "upload[data]=@file.txt" -F "upload[expiry]=10" -F
           "upload[uses]=3"
         <% end %>
@@ -91,13 +78,9 @@
 
       <div id="httpie" class="hidden py-4" data-tabs-target="panel">
         <%= render "components/code" do %>
-          http POST https://datadeaddrop.com/upload \<br>
-        <% end %>
-      </div>
-
-      <div class="hidden py-4" data-tabs-target="panel">
-        <%= render "components/code" do %>
-          wget --post-file=file.txt https://datadeaddrop.com/upload
+          http -f POST
+          <%= Rails.application.routes.default_url_options[:host] %>/upload.json \<br>
+          "upload[file]@README.md" "upload[expiry]=10" "upload[uses]=3"
         <% end %>
       </div>
     </div>

@@ -35,7 +35,8 @@ class UploadsController < ApplicationController
     @upload = upload_scope.find_by!(key: params[:id])
     @upload.decrement!(:uses) # rubocop:disable Rails/SkipsModelValidations
 
-    redirect_to(@upload.data.url(disposition: 'attachment', filename: @upload.data.filename.to_s),
+    file = @upload.file
+    redirect_to(file.url(disposition: 'attachment', filename: file.filename.to_s),
                 allow_other_host: true)
   end
 
@@ -48,7 +49,7 @@ class UploadsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def upload_params
     params
-      .require(:upload).permit(:data, :expiry, :uses)
+      .require(:upload).permit(:file, :expiry, :uses)
       .with_defaults(expiry: 10, uses: 1)
   end
 end

@@ -6,7 +6,7 @@
   >
     <div class="mx-auto text-center">
       <h1 class="font-semibold text-4xl sm:text-6xl sm:leading-tight">
-        Simple Data Sharing.
+        Simple File Sharing.
         <br>
         Secure, Self-Destructing.
       </h1>
@@ -34,7 +34,7 @@
   <div class="container mx-auto max-w-screen-xl p-4 py-24 ">
 
     <%= render "components/section_title",
-    title: "Share data in three steps",
+    title: "Share files in three steps",
     subtitle: "How it works" %>
 
     <div
@@ -47,11 +47,11 @@
         <% partial.title "Upload" %>
 
         <% partial.content do %>
-          Upload some data via our
+          Upload some file via our
           <%= render "components/link", name: "Web UI", url: new_path %>
-          or use your favorite command line client. Specify how long data
+          or use your favorite command line client. Specify how long your file
           should be kept and how often it can be accessed. You'll receive
-          unique and secure link to access your data.
+          unique and secure link to access your file.
         <% end %>
       <% end %>
 
@@ -60,7 +60,7 @@
         <% partial.title "Download" %>
 
         <% partial.content do %>
-          Share your link, or use it yourself to download your data. You can
+          Share your link, or use it yourself to download your file. You can
           use your browser or hop on the command line.
         <% end %>
       <% end %>
@@ -70,8 +70,8 @@
         <% partial.title "Incinerate" %>
 
         <% partial.content do %>
-          Your data is automatically destroyed after being accessed a
-          predefined number of times. Even if nobody access it, your data is
+          Your file is automatically destroyed after being accessed a
+          predefined number of times. Even if nobody access it, your file is
           deleted after a short expiration time 🔥
         <% end %>
       <% end %>
@@ -130,17 +130,17 @@
           <%= inline_svg "shield.svg" %>
         <% end %>
         <% partial.text do %>
-          Your data is safe by design. Secure links are generated using the
+          Your files are safe by design. Secure links are generated using the
           <%= render "components/link",
           name: "Diceware algorithm",
-          url: "https://en.wikipedia.org/wiki/Diceware" %>, making unauthorized access impossible. Uploaded data is fully
-          encrypted, we couldn't take a peek even if we wanted to.
+          url: "https://en.wikipedia.org/wiki/Diceware" %>, making unauthorized access impossible. Uploaded files are fully
+          encrypted. We couldn't take a peek even if we wanted to.
         <% end %>
       <% end %>
 
       <%= render "components/feature",
         title: "Self-Destruction", 
-        text: "Once uploaded your data will be destroyed sooner rather than later. Per default anything you upload can only be accessed once. Even data that's never accessed will be deleted after a short time." do |partial| %>
+        text: "Once uploaded your files will be destroyed sooner rather than later. Per default anything you upload can only be accessed once. Even files that are never accessed will be deleted after a short time." do |partial| %>
         <% partial.icon do %>
           <%= inline_svg "trash.svg" %>
         <% end %>

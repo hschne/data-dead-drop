@@ -3,4 +3,8 @@
 class ApplicationController < ActionController::Base
   def home; end
   def legal; end
+
+  def not_found
+    raise ActionController::RoutingError, 'Not Found'
+  end
 end

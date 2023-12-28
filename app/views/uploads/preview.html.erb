@@ -1,5 +1,5 @@
 <section class="px-4 py-16 flex flex-col gap-8 mx-auto max-w-screen-lg">
-  <h2 class="font-semibold text-4xl mb-8">File uploaded</h2>
+  <h2 class="font-semibold text-4xl mb-4">File uploaded</h2>
 
   <p class=" py-2 px-3 bg-red-50 text-red-500 rounded-lg inline-block ">
     Your file will expire in
@@ -25,10 +25,9 @@
       <label for="Tab" class="sr-only">Tab</label>
 
       <select id="Tab" class="w-full rounded-md border-gray-200">
-        <option>Curl</option>
-        <option>Wget</option>
+        <option select>cURL</option>
         <option>HTTPie</option>
-        <option select>Notifications</option>
+        <option>Wget</option>
       </select>
     </div>
 
@@ -49,7 +48,7 @@
               text-gray-500 hover:border-gray-300 hover:text-gray-700
             "
           >
-            Curl
+            cURL
           </a>
 
           <a
@@ -78,32 +77,26 @@
 
         </nav>
 
-        <div id="curl" class="hidden py-4" data-tabs-target="panel">
+        <div id="curl" class="py-4" data-tabs-target="panel">
           <%= render "components/code" do %>
             curl
-            <%= Rails.application.routes.url_helpers.download_url(@upload) %>
-            \<br>
-            &nbsp;&nbsp;-L -H "Accept: application/json" &gt; "<%= @upload.data.filename.to_s %>"<br>
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json \<br>
+            &nbsp;&nbsp;-L -H "Accept: application/json" &gt; "<%= @upload.file.filename.to_s %>"<br>
           <% end %>
         </div>
 
         <div id="httpie" class="hidden py-4" data-tabs-target="panel">
           <%= render "components/code" do %>
-            curl
-            <%= Rails.application.routes.url_helpers.download_url(@upload) %>
-            \<br>
-            &nbsp;&nbsp;-X POST -H "Accept: application/json" \<br>
-            &nbsp;&nbsp;-F "upload[data]=@file.txt" -F "upload[expiry]=10" -F
-            "upload[uses]=3"
+            http -d
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json \<br>
+
           <% end %>
         </div>
 
         <div class="hidden py-4" data-tabs-target="panel">
           <%= render "components/code" do %>
-            curl https://datadeaddrop.com/upload \<br>
-            &nbsp;&nbsp;-X POST -H "Accept: application/json" \<br>
-            &nbsp;&nbsp;-F "upload[data]=@file.txt" -F "upload[expiry]=10" -F
-            "upload[uses]=3"
+            wget -O "<%= @upload.file.filename.to_s %>"
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json \<br>
           <% end %>
         </div>
       </div>

@@ -54,15 +54,15 @@ RSpec.describe Upload do
     expect(upload).not_to be_valid
   end
 
-  it 'is not valid without data' do
-    upload = build(:upload, data: nil)
+  it 'is not valid without file' do
+    upload = build(:upload, file: nil)
 
     expect(upload).not_to be_valid
   end
 
-  it 'is not valid with large data' do
-    data = Rack::Test::UploadedFile.new(large_file.path, 'text/plain')
-    upload = build(:upload, data:)
+  it 'is not valid with large file' do
+    file = Rack::Test::UploadedFile.new(large_file.path, 'text/plain')
+    upload = build(:upload, file:)
 
     expect(upload).not_to be_valid
   end

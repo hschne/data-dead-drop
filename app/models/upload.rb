@@ -17,12 +17,12 @@
 #  index_uploads_on_key  (key) UNIQUE
 #
 class Upload < ApplicationRecord
-  has_one_attached :data
+  has_one_attached :file
 
   validates :expiry, presence: true
   validates :key, presence: true
   validates :uses, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
-  validates :data, attached: true, size: { less_than: 1024.kilobytes, message: 'must be smaller than 1 megabyte' } # rubocop:disable Rails/I18nLocaleTexts
+  validates :file, attached: true, size: { less_than: 1024.kilobytes, message: 'must be smaller than 1 MB' } # rubocop:disable Rails/I18nLocaleTexts
 
   validate :expires_range, if: -> { expiry.present? }
 

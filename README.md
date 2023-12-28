@@ -9,10 +9,10 @@ Visit https://datadeaddrop.com to upload data, or upload data via the command li
 ```bash
 curl https://datadeaddrop.com/upload \
   -X POST -H "Accept: application/json" \
-  -F "upload[data]=@file.txt" -F "upload[expiry]=10" -F "upload[uses]=3"
+  -F "upload[file]=@file.txt" -F "upload[expiry]=10" -F "upload[uses]=3"
 ```
 
-Uploaded data will automatically be deleted after the specified number of minutes or uses. The maximum expiry is 60 minutes, and the maximum number of uses is 10. File size is limited to 1MB.
+Uploaded data will automatically be deleted after the specified number of minutes or uses. The maximum expiry is 60 minutes, and the maximum number of uses is 5. File size is limited to 1MB.
 
 Data Dead drop will return a unique link generated using the [Diceware algorithm](https://en.wikipedia.org/wiki/Diceware) method. Use this link to download the file in the browser or via the command line.
 
@@ -27,10 +27,10 @@ Data Dead Drop's API is simple. If you want to build your own client use the `/u
 
 #### Upload
 
-```json
-# POST /upload
+```javascript
+// POST /upload
 {
-  "data":"file.txt",
+  "file":"file.txt",
   "expiry":10,
   "uses":1
 }
@@ -38,7 +38,7 @@ Data Dead Drop's API is simple. If you want to build your own client use the `/u
 
 A successful request will return status code `200` and the following payload: 
 
-```json
+```javascript
 {
   "name":"file.txt"
   "key":"your-secret-key",
@@ -51,7 +51,7 @@ A successful request will return status code `200` and the following payload:
 
 #### Download
 
-```json
+```javasript
 # GET /download/your-secret-key
 ```
 

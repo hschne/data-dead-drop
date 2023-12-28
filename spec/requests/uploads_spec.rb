@@ -16,12 +16,12 @@ RSpec.describe 'Uploads' do
       post '/upload', params:
         {
           upload: {
-            data: fixture_file_upload('sample.txt', 'text/plain')
+            file: fixture_file_upload('sample.txt', 'text/plain')
           }
         }
 
       upload = Upload.last
-      expect(upload.data).to be_attached
+      expect(upload.file).to be_attached
       expect(response).to redirect_to(preview_url(upload))
     end
 
@@ -29,7 +29,7 @@ RSpec.describe 'Uploads' do
       post '/upload', params:
         {
           upload: {
-            data: nil
+            file: nil
           }
         }
 
@@ -41,20 +41,20 @@ RSpec.describe 'Uploads' do
         post '/upload', params:
           {
             upload: {
-              data: fixture_file_upload('sample.txt', 'text/plain')
+              file: fixture_file_upload('sample.txt', 'text/plain')
             }
           }, headers: { 'Accept' => 'application/json' }
 
         expect(response).to be_successful
         upload = Upload.last
-        expect(upload.data).to be_attached
+        expect(upload.file).to be_attached
       end
 
       it 'renders response' do
         post '/upload', params:
           {
             upload: {
-              data: fixture_file_upload('sample.txt', 'text/plain')
+              file: fixture_file_upload('sample.txt', 'text/plain')
             }
           }, headers: { 'Accept' => 'application/json' }
 
@@ -69,13 +69,13 @@ RSpec.describe 'Uploads' do
         post '/upload', params:
           {
             upload: {
-              data: nil
+              file: nil
             }
           }, headers: { 'Accept' => 'application/json' }
 
         expect(response).to be_unprocessable
         json = response.parsed_body
-        expect(json['data']).to eq(["can't be blank"])
+        expect(json['file']).to eq(["can't be blank"])
       end
     end
 
