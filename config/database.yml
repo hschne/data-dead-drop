@@ -11,11 +11,6 @@ test:
   <<: *default
   database: "storage/test.sqlite3"
 
-# Warning: Make sure your production database path is on a persistent
-# volume, otherwise your application data could be deleted between deploys.
-#
-# You may also set the Litesupport.root in production via the
-# `LITESTACK_DATA_PATH` environment variable.
 production:
   <<: *default
   database: "storage/production.sqlite3"
