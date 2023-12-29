@@ -2,22 +2,18 @@
   data-controller="clipboard"
   class="
     relative w-full text-sm sm:text-base inline-flex text-left items-center
-    space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6
+    bg-gray-800 text-white rounded-lg p-4 pl-6
   "
 >
-  <p
-    class="w-full whitespace-nowrap overflow-scroll"
-    data-clipboard-target="source"
-  >
+  <p class="w-full" data-clipboard-target="source">
     <%= yield %>
   </p>
 
   <button
     data-action="clipboard#copy"
     class="
-      hidden sm:flex border border-gray-500 rounded-full text-gray-500
-      hover:text-white transition py-1 px-4 gap-1 flex-row items-center justify-center
-      self-start
+      flex border border-gray-500 rounded-full text-gray-500 hover:text-white
+      transition py-1 px-4 gap-1 flex-row items-center justify-center self-start
     "
   >
     <svg
