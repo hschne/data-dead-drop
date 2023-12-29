@@ -43,7 +43,6 @@ module DataDeadDrop
 
     # Use routes to render error pages
     config.exceptions_app = routes
-
     config.active_storage.draw_routes = false
   end
 end

@@ -65,6 +65,9 @@ gem 'lograge', '~> 0.14.0'
 gem 'sentry-rails', '~> 5.14'
 gem 'sentry-ruby', '~> 5.14'
 
+# Partials
+gem 'nice_partials', '~> 0.10.0'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -92,5 +95,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-gem 'nice_partials', '~> 0.10.0'

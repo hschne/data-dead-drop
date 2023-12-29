@@ -23,8 +23,6 @@ jobs:
           bundler-cache: true
       - name: Set up database schema
         run: bin/rails db:setup
-      - name: Set up database schema
-        run: bin/rails db:seed
       - name: Run tests
         run: bundle exec rspec
 
