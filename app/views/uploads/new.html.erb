@@ -36,7 +36,7 @@
           class="w-full rounded-md border-gray-200"
           data-action="change->tabs#change"
         >
-          <option select>cURl</option>
+          <option select>cURL</option>
           <option>HTTPie</option>
         </select>
       </div>
@@ -73,7 +73,7 @@
         <%= render "components/code" do %>
           curl
           <%= Rails.application.routes.default_url_options[:host] %>/upload.json \<br>
-          &nbsp;&nbsp;-F "upload[data]=@file.txt" -F "upload[expiry]=10" -F
+          &nbsp;&nbsp;-F "upload[file]=@file.txt" -F "upload[expiry]=10" -F
           "upload[uses]=3"
         <% end %>
       </div>

@@ -80,7 +80,7 @@
           <%= render "components/code" do %>
             curl -L
             <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json \<br>
-            &nbsp;&nbsp; -H "Accept: application/json" &gt; "<%= @upload.file.filename.to_s %>"<br>
+            "<%= @upload.file.filename.to_s %>"<br>
           <% end %>
         </div>
 

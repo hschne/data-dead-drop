@@ -13,7 +13,7 @@
 
 ## Usage
 
-Visit https://datadeaddrop.com to upload data, or upload data via the command line, for example using Curl:
+Visit https://datadeaddrop.com to upload files, or upload files via the command line. For example using cURL:
 
 ```bash
 curl https://datadeaddrop.com/upload \
