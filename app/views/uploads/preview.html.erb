@@ -79,8 +79,7 @@
         <div id="curl" class="py-4" data-tabs-target="panel">
           <%= render "components/code" do %>
             curl -L
-            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json \<br>
-            "<%= @upload.file.filename.to_s %>"<br>
+            <%= Rails.application.routes.url_helpers.download_url(@upload) %>.json &gt; "<%= @upload.file.filename.to_s %>"<br>
           <% end %>
         </div>
 
