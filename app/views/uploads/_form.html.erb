@@ -16,7 +16,7 @@
                  class:
                    "flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300
                       border-dashed rounded-lg cursor-pointer border border-gray-800 background-white", 
-        data: { controller: "drop", action: "drop->drop#drop" } do %>
+        data: { controller: "drop", action: "dragover->drop#acceptDrop drop->drop#drop" } do %>
     <div class="flex flex-col items-center justify-center pt-5 pb-6 text-gray-500">
       <%= inline_svg "upload.svg",
       class: "icon-upload w-8 h-8 mb-4",
@@ -72,6 +72,6 @@
     <%= form.submit "Upload",
                 class:
                   "block text-white font-semibold outline-none bg-gray-800 w-full rounded-full grow px-12 py-3 text-sm focus:outline-none focus:ring sm:w-auto
-                                                                                                                                                                                                                                          " %>
+                                                                                                                                                                                                                                              " %>
   </div>
 <% end %>

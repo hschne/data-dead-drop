@@ -3,6 +3,10 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["input", "text", "uploadIcon", "fileIcon"];
 
+  acceptDrop(event) {
+    event.preventDefault();
+  }
+
   drop(event) {
     event.preventDefault();
     if (event.dataTransfer.items) {
