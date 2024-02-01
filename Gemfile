@@ -86,7 +86,7 @@ group :development do
   gem 'rubocop', '~> 1.59'
   gem 'rubocop-factory_bot', '~> 2.24'
   gem 'rubocop-rails', '~> 2.23'
-  gem 'rubocop-rspec', '~> 2.25'
+  gem 'rubocop-rspec', '~> 2.26'
 
   gem 'web-console'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
