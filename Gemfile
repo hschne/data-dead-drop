@@ -82,7 +82,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'annotate', '~> 3.2'
 
-  gem 'erb-formatter', '~> 0.6.0'
+  gem 'erb-formatter', '~> 0.7.1'
   gem 'rubocop', '~> 1.59'
   gem 'rubocop-factory_bot', '~> 2.24'
   gem 'rubocop-rails', '~> 2.23'
