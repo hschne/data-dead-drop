@@ -119,7 +119,7 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     ed25519 (1.3.0)
-    erb-formatter (0.6.0)
+    erb-formatter (0.7.1)
       syntax_tree (~> 6.0)
     erubi (1.12.0)
     et-orbi (1.2.7)
@@ -380,7 +380,7 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.142)
   bootsnap
   debug
-  erb-formatter (~> 0.6.0)
+  erb-formatter (~> 0.7.1)
   factory_bot_rails (~> 6.4)
   importmap-rails
   inline_svg (~> 1.9)
