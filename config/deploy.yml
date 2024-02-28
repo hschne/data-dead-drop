@@ -4,7 +4,7 @@ image: hschne/data-dead-drop
 servers:
   web:
     hosts:
-      - 165.232.77.44
+      - 159.69.18.121
     labels:
       traefik.http.routers.imagebinary.rule: Host(`datadeaddrop.com`)
       traefik.http.routers.imagebinary_secure.entrypoints: websecure
@@ -24,6 +24,7 @@ env:
     HOSTNAME: datadeaddrop.com
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
+    WEB_CONCURRENCY: 1
   secret:
     - RAILS_MASTER_KEY
 
