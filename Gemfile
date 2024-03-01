@@ -84,7 +84,7 @@ group :development do
 
   gem 'erb-formatter', '~> 0.7.1'
   gem 'rubocop', '~> 1.59'
-  gem 'rubocop-factory_bot', '~> 2.24'
+  gem 'rubocop-factory_bot', '~> 2.25'
   gem 'rubocop-rails', '~> 2.23'
   gem 'rubocop-rspec', '~> 2.26'
 
