@@ -62,8 +62,8 @@ gem 'inline_svg', '~> 1.9'
 gem 'lograge', '~> 0.14.0'
 
 # Errors
-gem 'sentry-rails', '~> 5.14'
-gem 'sentry-ruby', '~> 5.14'
+gem 'sentry-rails', '~> 5.16'
+gem 'sentry-ruby', '~> 5.16'
 
 # Partials
 gem 'nice_partials', '~> 0.10.0'
