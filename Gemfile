@@ -48,7 +48,7 @@ gem 'bootsnap', require: false
 
 gem 'kamal', '~> 1.3'
 
-gem 'litestack', '~> 0.4.2'
+gem 'litestack', '~> 0.4.3'
 
 # Files
 gem 'active_storage_validations', '~> 1.1'
