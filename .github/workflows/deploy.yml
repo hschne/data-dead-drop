@@ -41,31 +41,9 @@ jobs:
           username: hschne
           password: ${{ secrets.DOCKER_REGISTRY_KEY }}
 
-      - name: Set Tag
-        id: tag
-        run: |
-          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-            GITHUB_SHA=${{ github.event.pull_request.head.sha }}
-          fi
-          echo "tag=$(git rev-parse "$GITHUB_SHA")" >> $GITHUB_OUTPUT
-
-      - name: Build Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          labels: |
-            "service=data-dead-drop"
-          tags: |
-            "hschne/data-dead-drop:latest"
-            "hschne/data-dead-drop:${{ steps.tag.outputs.tag }}"
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
       - uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy command
-        run: bundle exec kamal deploy --skip-push
+        run: bundle exec dotenv kamal deploy

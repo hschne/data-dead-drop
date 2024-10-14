@@ -59,26 +59,11 @@ env:
 #   limit: 10 # Can also specify as a percentage of total hosts, such as "25%"
 #   wait: 2
 
-# Use accessory services (secrets come from .kamal/secrets).
-#
-# accessories:
-#   db:
-#     image: mysql:8.0
-#     host: 192.168.0.2
-#     port: 3306
-#     env:
-#       clear:
-#         MYSQL_ROOT_HOST: '%'
-#       secret:
-#         - MYSQL_ROOT_PASSWORD
-#     files:
-#       - config/mysql/production.cnf:/etc/mysql/my.cnf
-#       - db/production.sql:/docker-entrypoint-initdb.d/setup.sql
-#     directories:
-#       - data:/var/lib/mysql
-#   redis:
-#     image: redis:7.0
-#     host: 192.168.0.2
-#     port: 6379
-#     directories:
-#       - data:/data
+accessories:
+  monitoring:
+    image: hschne/puny-monitor:latest
+    host: 159.69.18.121
+    port: 4567
+    directories:
+      - /:/host:ro,rslave
+      - puny-data:/puny-monitor/db
