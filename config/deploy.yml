@@ -1,24 +1,28 @@
 service: data-dead-drop
 image: hschne/data-dead-drop
 
+# Deploy to these servers.
 servers:
   web:
-    hosts:
-      - 159.69.18.121
-    labels:
-      traefik.http.routers.imagebinary.rule: Host(`datadeaddrop.com`)
-      traefik.http.routers.imagebinary_secure.entrypoints: websecure
-      traefik.http.routers.imagebinary_secure.rule: Host(`datadeaddrop.com`)
-      traefik.http.routers.imagebinary_secure.tls: true
-      traefik.http.routers.imagebinary_secure.tls.certresolver: letsencrypt
-    options:
-      network: "private"
+    - 159.69.18.121
+
+# Enable SSL auto certification via Let's Encrypt (and allow for multiple apps on one server).
+# If using something like Cloudflare, it is recommended to set encryption mode
+# in Cloudflare's SSL/TLS setting to "Full" to enable end-to-end encryption.
+proxy:
+  ssl: true
+  host: datadeaddrop.com
 
 registry:
   username: hschne
   password:
     - KAMAL_REGISTRY_PASSWORD
 
+# Configure builder setup.
+builder:
+  arch: amd64
+# Inject ENV variables into containers (secrets come from .kamal/secrets).
+#
 env:
   clear:
     HOSTNAME: datadeaddrop.com
@@ -27,22 +31,36 @@ env:
     WEB_CONCURRENCY: 1
   secret:
     - RAILS_MASTER_KEY
+# Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
+# "bin/kamal logs -r job" will tail logs from the first server in the job section.
+#
+# aliases:
+#   shell: app exec --interactive --reuse "bash"
 
 # Use a different ssh user than root
+#
 # ssh:
 #   user: app
 
-# Configure builder setup.
-# builder:
-#   args:
-#     RUBY_VERSION: 3.2.0
-#   secrets:
-#     - GITHUB_TOKEN
-#   remote:
-#     arch: amd64
-#     host: ssh://app@192.168.0.1
+# Use a persistent storage volume.
+#
+# volumes:
+#   - "app_storage:/app/storage"
 
-# Use accessory services (secrets come from .env).
+# Bridge fingerprinted assets, like JS and CSS, between versions to avoid
+# hitting 404 on in-flight requests. Combines all files from new and old
+# version inside the asset_path.
+#
+# asset_path: /app/public/assets
+
+# Configure rolling deploys by setting a wait time between batches of restarts.
+#
+# boot:
+#   limit: 10 # Can also specify as a percentage of total hosts, such as "25%"
+#   wait: 2
+
+# Use accessory services (secrets come from .kamal/secrets).
+#
 # accessories:
 #   db:
 #     image: mysql:8.0
@@ -64,45 +82,3 @@ env:
 #     port: 6379
 #     directories:
 #       - data:/data
-
-# Configure custom arguments for Traefik
-traefik:
-  options:
-    publish:
-      - "443:443"
-    volume:
-      - "/letsencrypt/acme.json:/letsencrypt/acme.json"
-    network: "private"
-  args:
-    entryPoints.web.address: ":80"
-    entryPoints.websecure.address: ":443"
-    certificatesResolvers.letsencrypt.acme.email: "support@datadeaddrop.com"
-    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
-    certificatesResolvers.letsencrypt.acme.httpchallenge: true
-    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
-# Configure a custom healthcheck (default is /up on port 3000)
-# healthcheck:
-#   path: /healthz
-#   port: 4000
-
-# Bridge fingerprinted assets, like JS and CSS, between versions to avoid
-# hitting 404 on in-flight requests. Combines all files from new and old
-# version inside the asset_path.
-# asset_path: /rails/public/assets
-
-# Configure rolling deploys by setting a wait time between batches of restarts.
-# boot:
-#   limit: 10 # Can also specify as a percentage of total hosts, such as "25%"
-#   wait: 2
-
-# Configure the role used to determine the primary_host. This host takes
-# deploy locks, runs health checks during the deploy, and follow logs, etc.
-#
-# Caution: there's no support for role renaming yet, so be careful to cleanup
-#          the previous role on the deployed hosts.
-# primary_role: web
-
-# Controls if we abort when see a role with no hosts. Disabling this may be
-# useful for more complex deploy configurations.
-#
-# allow_empty_roles: false
