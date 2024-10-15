@@ -36,8 +36,17 @@ env:
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal logs -r job" will tail logs from the first server in the job section.
 #
-# aliases:
-#   shell: app exec --interactive --reuse "bash"
+aliases:
+  shell: app exec --interactive --reuse "bash"
+  add-monitoring-to-proxy: |
+    server exec docker exec kamal-proxy kamal-proxy deploy puny-monitor 
+    --target "SERVICE-puny-monitor:4567"
+    --host "puny-monitor.datadeaddrop.com"
+    --deploy-timeout "30s"
+    --drain-timeout "30s"
+    --health-check-path "/"
+    --buffer-requests
+    --buffer-responses
 
 # Use a different ssh user than root
 #
@@ -62,10 +71,10 @@ volumes:
 #   wait: 2
 
 accessories:
-  monitoring:
+  puny-monitor:
     image: hschne/puny-monitor:latest
     host: 159.69.18.121
-    port: 4567
-    directories:
+    port: 127.0.0.1:4567:4567
+    volumes:
       - /:/host:ro,rslave
       - puny-data:/puny-monitor/db
