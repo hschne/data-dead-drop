@@ -12,6 +12,7 @@ servers:
 proxy:
   ssl: true
   host: datadeaddrop.com
+  app_port: 3000
 
 registry:
   username: hschne
