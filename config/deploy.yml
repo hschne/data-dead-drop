@@ -12,7 +12,6 @@ servers:
 proxy:
   ssl: true
   host: datadeaddrop.com
-  app_port: 3000
 
 registry:
   username: hschne
@@ -22,11 +21,13 @@ registry:
 # Configure builder setup.
 builder:
   arch: amd64
-# Inject ENV variables into containers (secrets come from .kamal/secrets).
-#
+  cache:
+    type: gha
+
 env:
   clear:
     HOSTNAME: datadeaddrop.com
+    TLS_DOMAIN: datadeaddrop.com
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
     WEB_CONCURRENCY: 1

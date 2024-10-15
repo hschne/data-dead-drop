@@ -47,6 +47,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'bootsnap', require: false
 
 gem 'kamal'
+gem 'thruster'
 
 gem 'litestack', '~> 0.4.2'
 
