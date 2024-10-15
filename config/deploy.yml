@@ -27,7 +27,6 @@ builder:
 env:
   clear:
     HOSTNAME: datadeaddrop.com
-    TLS_DOMAIN: datadeaddrop.com
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
     WEB_CONCURRENCY: 1
