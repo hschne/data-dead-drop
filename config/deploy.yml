@@ -40,13 +40,9 @@ aliases:
   shell: app exec --interactive --reuse "bash"
   add-monitoring-to-proxy: |
     server exec docker exec kamal-proxy kamal-proxy deploy puny-monitor 
-    --target "SERVICE-puny-monitor:4567"
+    --target "data-dead-drop-puny-monitor:4567"
     --host "puny-monitor.datadeaddrop.com"
-    --deploy-timeout "30s"
-    --drain-timeout "30s"
-    --health-check-path "/"
-    --buffer-requests
-    --buffer-responses
+    --tls
 
 # Use a different ssh user than root
 #
@@ -74,7 +70,7 @@ accessories:
   puny-monitor:
     image: hschne/puny-monitor:latest
     host: 159.69.18.121
-    port: 127.0.0.1:4567:4567
+    port: 4567
     volumes:
       - /:/host:ro,rslave
       - puny-data:/puny-monitor/db
